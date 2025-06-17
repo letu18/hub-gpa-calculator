@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB GPA Calculator - AI Powered</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-assistant {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-assistant::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .ai-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        .left-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stats-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stats-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .gpa-display {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+
+        .grade-level {
+            padding: 8px 16px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .grade-excellent { background: linear-gradient(45deg, #ff6b6b, #ee5a24); }
+        .grade-good { background: linear-gradient(45deg, #4834d4, #686de0); }
+        .grade-fair { background: linear-gradient(45deg, #f39c12, #e67e22); }
+        .grade-poor { background: linear-gradient(45deg, #95a5a6, #7f8c8d); }
+
+        .semester-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .subject-form {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 100px 100px 100px 100px auto;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #666;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 100px 100px 100px 100px auto;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-input.subject-name {
+            text-align: left;
+        }
+
+        .form-input.credits {
+            text-align: center;
+        }
+
+        .average-display {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #2ed573, #1e90ff);
+            color: white;
+        }
+
+        .subjects-list {
+            margin-top: 20px;
+        }
+
+        .subject-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr auto;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .subject-scores {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .score-item {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .ai-suggestions {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .suggestion-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #fff;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row, .form-header {
+                grid-template-columns: 1fr;
+            }
+            
+            .subject-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .floating-ai {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+            z-index: 999;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .scholarship-info {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .warning-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-graduation-cap"></i> HUB GPA Calculator</h1>
+            <p>Hệ thống tính điểm thông minh cho sinh viên Đại học Ngân Hàng</p>
+        </div>
+
+        <div class="ai-assistant">
+            <div class="ai-content">
+                <h3><i class="fas fa-robot"></i> AI Assistant</h3>
+                <p>Xin chào! Tôi là trợ lý AI của bạn. Hãy nhập điểm các môn học để tôi tính toán GPA và đưa ra những gợi ý học tập phù hợp.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="semester-tabs">
+                    <div class="tab active" data-semester="1">HK 1</div>
+                    <div class="tab" data-semester="2">HK 2</div>
+                    <div class="tab" data-semester="3">HK 3</div>
+                    <div class="tab" data-semester="4">HK 4</div>
+                    <div class="tab" data-semester="5">HK 5</div>
+                </div>
+
+                <div class="subject-form">
+                    <h3>Thêm môn học</h3>
+                    <div class="form-header">
+                        <div>Tên môn học</div>
+                        <div>Tín chỉ</div>
+                        <div>CC (10%)</div>
+                        <div>BT (20%)</div>
+                        <div>GK (20%)</div>
+                        <div>CK (50%)</div>
+                        <div>Thao tác</div>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" class="form-input subject-name" id="subjectName" placeholder="Nhập tên môn học">
+                        <input type="number" class="form-input credits" id="credits" placeholder="TC" min="1" max="10">
+                        <input type="number" class="form-input" id="attendance" placeholder="0-10" min="0" max="10" step="0.1" oninput="calculateAverage()">
+                        <input type="number" class="form-input" id="homework" placeholder="0-10" min="0" max="10" step="0.1" oninput="calculateAverage()">
+                        <input type="number" class="form-input" id="midterm" placeholder="0-10" min="0" max="10" step="0.1" oninput="calculateAverage()">
+                        <input type="number" class="form-input" id="final" placeholder="0-10" min="0" max="10" step="0.1" oninput="calculateAverage()">
+                        <button class="btn btn-primary" onclick="addSubject()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="form-row">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="average-display" id="averageDisplay">Điểm TB: --</div>
+                    </div>
+                </div>
+
+                <div class="subjects-list" id="subjectsList">
+                    <!-- Danh sách môn học sẽ được hiển thị ở đây -->
+                </div>
+
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <h4><i class="fas fa-lightbulb"></i> Gợi ý từ AI</h4>
+                    <div id="suggestionsContent">
+                        <div class="suggestion-item">
+                            <strong>Mẹo học tập:</strong> Hãy duy trì điểm chuyên cần ổn định để có nền tảng điểm số tốt.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="stats-card">
+                    <h3>GPA Học kỳ hiện tại</h3>
+                    <div class="gpa-display" id="currentGPA">0.00</div>
+                    <div class="grade-level grade-poor" id="currentGrade">Chưa có điểm</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="gpaProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>GPA Tích lũy</h3>
+                    <div class="gpa-display" id="cumulativeGPA">0.00</div>
+                    <div class="grade-level grade-poor" id="cumulativeGrade">Chưa có điểm</div>
+                    <p><strong>Tổng tín chỉ:</strong> <span id="totalCredits">0</span></p>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Thống kê</h3>
+                    <p><strong>Số môn đã học:</strong> <span id="totalSubjects">0</span></p>
+                    <p><strong>Điểm trung bình:</strong> <span id="averageScore">0.00</span></p>
+                    <p><strong>Môn cao nhất:</strong> <span id="highestSubject">--</span></p>
+                    <p><strong>Môn thấp nhất:</strong> <span id="lowestSubject">--</span></p>
+                </div>
+
+                <div class="stats-card">
+                    <h3><i class="fas fa-crystal-ball"></i> Dự đoán điểm</h3>
+                    <button class="btn btn-primary" onclick="predictRequiredScore()" style="width: 100%;">
+                        Tính điểm cần thiết
+                    </button>
+                </div>
+
+                <div class="scholarship-info" id="scholarshipInfo" style="display: none;">
+                    <h4><i class="fas fa-award"></i> Thông tin học bổng</h4>
+                    <p id="scholarshipText"></p>
+                </div>
+
+                <div class="warning-card" id="warningCard" style="display: none;">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Cảnh báo học vụ</h4>
+                    <p id="warningText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-ai" onclick="showAIChat()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Modal AI Chat -->
+    <div class="modal" id="aiChatModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAIChat()">&times;</span>
+            <h3><i class="fas fa-robot"></i> Chat với AI Assistant</h3>
+            <div id="chatMessages" style="height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 15px; margin: 20px 0; border-radius: 10px;">
+                <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                    <strong>AI:</strong> Xin chào! Tôi có thể giúp bạn phân tích điểm số và đưa ra lời khuyên học tập. Hãy hỏi tôi bất cứ điều gì!
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chatInput" class="form-input" placeholder="Nhập câu hỏi của bạn..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu lưu trữ
+        let studentData = {
+            semesters: {
+                1: [], 2: [], 3: [], 4: [], 5: []
+            },
+            currentSemester: 1
+        };
+
+        // Load dữ liệu từ localStorage
+        function loadData() {
+            const saved = localStorage.getItem('hubGPAData');
+            if (saved) {
+                studentData = JSON.parse(saved);
+            }
+        }
+
+        // Lưu dữ liệu vào localStorage
+        function saveData() {
+            localStorage.setItem('hubGPAData', JSON.stringify(studentData));
+        }
+
+        // Tính điểm trung bình môn học theo công thức mới: 10% + 20% + 20% + 50%
+        function calculateAverage() {
+            const attendance = parseFloat(document.getElementById('attendance').value) || 0;
+            const homework = parseFloat(document.getElementById('homework').value) || 0;
+            const midterm = parseFloat(document.getElementById('midterm').value) || 0;
+            const final = parseFloat(document.getElementById('final').value) || 0;
+
+            // Kiểm tra xem có ít nhất một điểm được nhập không
+            if (attendance === 0 && homework === 0 && midterm === 0 && final === 0) {
+                document.getElementById('averageDisplay').textContent = 'Điểm TB: --';
+                document.getElementById('averageDisplay').style.background = 'linear-gradient(45deg, #95a5a6, #7f8c8d)';
+                return;
+            }
+
+            // Tính điểm trung bình: 10% + 20% + 20% + 50%
+            const average = (attendance * 0.1) + (homework * 0.2) + (midterm * 0.2) + (final * 0.5);
+            
+            // Hiển thị điểm trung bình
+            document.getElementById('averageDisplay').textContent = `Điểm TB: ${average.toFixed(2)}`;
+            
+            // Thay đổi màu sắc dựa trên điểm số
+            let backgroundColor;
+            if (average >= 8.5) {
+                backgroundColor = 'linear-gradient(45deg, #2ed573, #1e90ff)'; // Xanh lá
+            } else if (average >= 7.0) {
+                backgroundColor = 'linear-gradient(45deg, #4834d4, #686de0)'; // Xanh dương
+            } else if (average >= 5.5) {
+                backgroundColor = 'linear-gradient(45deg, #f39c12, #e67e22)'; // Cam
+            } else {
+                backgroundColor = 'linear-gradient(45deg, #ff6b6b, #ee5a24)'; // Đỏ
+            }
+            
+            document.getElementById('averageDisplay').style.background = backgroundColor;
+        }
+
+        // Chuyển đổi thang điểm 10 sang thang điểm 4
+        function convertTo4Scale(score10) {
+            if (score10 >= 9.5) return 4.0;
+            if (score10 >= 9.0) return 3.7;
+            if (score10 >= 8.5) return 3.4;
+            if (score10 >= 8.0) return 3.2;
+            if (score10 >= 7.5) return 3.0;
+            if (score10 >= 7.0) return 2.8;
+            if (score10 >= 6.5) return 2.6;
+            if (score10 >= 6.0) return 2.4;
+            if (score10 >= 5.5) return 2.2;
+            if (score10 >= 5.0) return 2.0;
+            if (score10 >= 4.5) return 1.8;
+            if (score10 >= 4.0) return 1.6;
+            return 0.0;
+        }
+
+        // Tính điểm tổng kết môn học
+        function calculateSubjectScore(attendance, homework, midterm, final) {
+            return (attendance * 0.1) + (homework * 0.2) + (midterm * 0.2) + (final * 0.5);
+        }
+
+        // Xác định xếp loại
+        function getGradeLevel(gpa) {
+            if (gpa >= 3.6) return { text: 'Xuất sắc', class: 'grade-excellent' };
+            if (gpa >= 3.2) return { text: 'Giỏi', class: 'grade-good' };
+            if (gpa >= 2.5) return { text: 'Khá', class: 'grade-fair' };
+            if (gpa >= 2.0) return { text: 'Trung bình', class: 'grade-fair' };
+            if (gpa >= 1.0) return { text: 'Yếu', class: 'grade-poor' };
+            return { text: 'Kém', class: 'grade-poor' };
+        }
+
+        // Thêm môn học
+        function addSubject() {
+            const name = document.getElementById('subjectName').value;
+            const credits = parseInt(document.getElementById('credits').value);
+            const attendance = parseFloat(document.getElementById('attendance').value);
+            const homework = parseFloat(document.getElementById('homework').value);
+            const midterm = parseFloat(document.getElementById('midterm').value);
+            const final = parseFloat(document.getElementById('final').value);
+
+            if (!name || !credits || isNaN(attendance) || isNaN(homework) || isNaN(midterm) || isNaN(final)) {
+                alert('Vui lòng nhập đầy đủ thông tin!');
+                return;
+            }
+
+            const totalScore = calculateSubjectScore(attendance, homework, midterm, final);
+            const gpa4 = convertTo4Scale(totalScore);
+
+            const subject = {
+                id: Date.now(),
+                name,
+                credits,
+                attendance,
+                homework,
+                midterm,
+                final,
+                totalScore: totalScore.toFixed(2),
+                gpa4: gpa4.toFixed(2)
+            };
+
+            studentData.semesters[studentData.currentSemester].push(subject);
+            saveData();
+            
+            // Clear form
+            document.getElementById('subjectName').value = '';
+            document.getElementById('credits').value = '';
+            document.getElementById('attendance').value = '';
+            document.getElementById('homework').value = '';
+            document.getElementById('midterm').value = '';
+            document.getElementById('final').value = '';
+            
+            // Reset average display
+            document.getElementById('averageDisplay').textContent = 'Điểm TB: --';
+            document.getElementById('averageDisplay').style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+
+            updateDisplay();
+            generateAISuggestions();
+        }
+
+        // Xóa môn học
+        function deleteSubject(id) {
+            studentData.semesters[studentData.currentSemester] = 
+                studentData.semesters[studentData.currentSemester].filter(subject => subject.id !== id);
+            saveData();
+            updateDisplay();
+            generateAISuggestions();
+        }
+
+        // Cập nhật hiển thị
+        function updateDisplay() {
+            displaySubjects();
+            calculateGPA();
+            updateStatistics();
+            checkScholarship();
+            checkWarnings();
+        }
+
+        // Hiển thị danh sách môn học
+        function displaySubjects() {
+            const container = document.getElementById('subjectsList');
+            const subjects = studentData.semesters[studentData.currentSemester];
+            
+            if (subjects.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">Chưa có môn học nào. Hãy thêm môn học đầu tiên!</p>';
+                return;
+            }
+
+            container.innerHTML = subjects.map(subject => `
+                <div class="subject-item">
+                    <div>
+                        <strong>${subject.name}</strong>
+                        <br><small>${subject.credits} tín chỉ</small>
+                    </div>
+                    <div class="subject-scores">
+                        <div class="score-item">CC: ${subject.attendance}</div>
+                        <div class="score-item">BT: ${subject.homework}</div>
+                        <div class="score-item">GK: ${subject.midterm}</div>
+                        <div class="score-item">CK: ${subject.final}</div>
+                    </div>
+                    <div>Điểm 10: <strong>${subject.totalScore}</strong></div>
+                    <div>Điểm 4: <strong>${subject.gpa4}</strong></div>
+                    <div>
+                        <span class="grade-level ${getGradeLevel(parseFloat(subject.gpa4)).class}" style="font-size: 12px; padding: 4px 8px;">
+                            ${getGradeLevel(parseFloat(subject.gpa4)).text}
+                        </span>
+                    </div>
+                    <div>
+                                                <button class="btn btn-danger" onclick="deleteSubject(${subject.id})" style="padding: 8px 12px; font-size: 12px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Tính GPA
+        function calculateGPA() {
+            // GPA học kỳ hiện tại
+            const currentSubjects = studentData.semesters[studentData.currentSemester];
+            let currentGPA = 0;
+            let currentCredits = 0;
+
+            if (currentSubjects.length > 0) {
+                let totalPoints = 0;
+                currentSubjects.forEach(subject => {
+                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    currentCredits += subject.credits;
+                });
+                currentGPA = totalPoints / currentCredits;
+            }
+
+            // GPA tích lũy
+            let cumulativeGPA = 0;
+            let totalCredits = 0;
+            let totalPoints = 0;
+
+            Object.values(studentData.semesters).forEach(semester => {
+                semester.forEach(subject => {
+                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    totalCredits += subject.credits;
+                });
+            });
+
+            if (totalCredits > 0) {
+                cumulativeGPA = totalPoints / totalCredits;
+            }
+
+            // Cập nhật hiển thị
+            document.getElementById('currentGPA').textContent = currentGPA.toFixed(2);
+            document.getElementById('cumulativeGPA').textContent = cumulativeGPA.toFixed(2);
+            document.getElementById('totalCredits').textContent = totalCredits;
+
+            // Cập nhật xếp loại
+            const currentGrade = getGradeLevel(currentGPA);
+            const cumulativeGrade = getGradeLevel(cumulativeGPA);
+
+            const currentGradeElement = document.getElementById('currentGrade');
+            currentGradeElement.textContent = currentGrade.text;
+            currentGradeElement.className = `grade-level ${currentGrade.class}`;
+
+            const cumulativeGradeElement = document.getElementById('cumulativeGrade');
+            cumulativeGradeElement.textContent = cumulativeGrade.text;
+            cumulativeGradeElement.className = `grade-level ${cumulativeGrade.class}`;
+
+            // Cập nhật thanh tiến độ
+            const progressPercent = (currentGPA / 4.0) * 100;
+            document.getElementById('gpaProgress').style.width = `${progressPercent}%`;
+        }
+
+        // Cập nhật thống kê
+        function updateStatistics() {
+            let totalSubjects = 0;
+            let totalScore = 0;
+            let highestScore = 0;
+            let lowestScore = 10;
+            let highestSubject = '--';
+            let lowestSubject = '--';
+
+            Object.values(studentData.semesters).forEach(semester => {
+                semester.forEach(subject => {
+                    totalSubjects++;
+                    const score = parseFloat(subject.totalScore);
+                    totalScore += score;
+                    
+                    if (score > highestScore) {
+                        highestScore = score;
+                        highestSubject = subject.name;
+                    }
+                    
+                    if (score < lowestScore) {
+                        lowestScore = score;
+                        lowestSubject = subject.name;
+                    }
+                });
+            });
+
+            document.getElementById('totalSubjects').textContent = totalSubjects;
+            document.getElementById('averageScore').textContent = totalSubjects > 0 ? (totalScore / totalSubjects).toFixed(2) : '0.00';
+            document.getElementById('highestSubject').textContent = `${highestSubject} (${highestScore.toFixed(2)})`;
+            document.getElementById('lowestSubject').textContent = totalSubjects > 0 ? `${lowestSubject} (${lowestScore.toFixed(2)})` : '--';
+        }
+
+        // Kiểm tra học bổng
+        function checkScholarship() {
+            const currentSubjects = studentData.semesters[studentData.currentSemester];
+            const scholarshipCard = document.getElementById('scholarshipInfo');
+            const scholarshipText = document.getElementById('scholarshipText');
+
+            let currentCredits = 0;
+            let currentGPA = 0;
+            
+            if (currentSubjects.length > 0) {
+                let totalPoints = 0;
+                currentSubjects.forEach(subject => {
+                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    currentCredits += subject.credits;
+                });
+                currentGPA = totalPoints / currentCredits;
+            }
+
+            if (currentCredits >= 15) {
+                if (currentGPA >= 3.6) {
+                    scholarshipCard.style.display = 'block';
+                    scholarshipText.textContent = 'Chúc mừng! Bạn đủ điều kiện xét học bổng khuyến khích học tập với GPA xuất sắc!';
+                } else if (currentGPA >= 3.2) {
+                    scholarshipCard.style.display = 'block';
+                    scholarshipText.textContent = 'Bạn đủ điều kiện xét học bổng với GPA giỏi. Hãy cố gắng duy trì!';
+                } else if (currentGPA >= 2.5) {
+                    scholarshipCard.style.display = 'block';
+                    scholarshipText.textContent = 'Bạn có thể xét học bổng nếu cải thiện thêm một chút điểm số.';
+                } else {
+                    scholarshipCard.style.display = 'none';
+                }
+            } else {
+                scholarshipCard.style.display = 'none';
+            }
+        }
+
+        // Kiểm tra cảnh báo học vụ
+        function checkWarnings() {
+            const currentSubjects = studentData.semesters[studentData.currentSemester];
+            const warningCard = document.getElementById('warningCard');
+            const warningText = document.getElementById('warningText');
+
+            let currentCredits = 0;
+            let currentGPA = 0;
+            
+            if (currentSubjects.length > 0) {
+                let totalPoints = 0;
+                currentSubjects.forEach(subject => {
+                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    currentCredits += subject.credits;
+                });
+                currentGPA = totalPoints / currentCredits;
+            }
+
+            if (currentCredits < 15 && currentCredits > 0) {
+                warningCard.style.display = 'block';
+                warningText.textContent = 'Cảnh báo: Số tín chỉ dưới 15, bạn không đủ điều kiện xét học bổng và danh hiệu.';
+            } else if (currentGPA < 2.0 && currentGPA > 0) {
+                warningCard.style.display = 'block';
+                warningText.textContent = 'Cảnh báo học vụ: GPA dưới 2.0, bạn cần cải thiện kết quả học tập.';
+            } else {
+                warningCard.style.display = 'none';
+            }
+        }
+
+        // Tạo gợi ý AI
+        function generateAISuggestions() {
+            const suggestionsContainer = document.getElementById('suggestionsContent');
+            const currentSubjects = studentData.semesters[studentData.currentSemester];
+            
+            let suggestions = [];
+
+            if (currentSubjects.length === 0) {
+                suggestions.push({
+                    icon: 'fas fa-info-circle',
+                    title: 'Bắt đầu nhập điểm',
+                    content: 'Hãy thêm các môn học và điểm số để AI có thể phân tích và đưa ra gợi ý phù hợp.'
+                });
+            } else {
+                let currentGPA = 0;
+                let totalPoints = 0;
+                let totalCredits = 0;
+                let lowestScore = 10;
+                let highestScore = 0;
+
+                currentSubjects.forEach(subject => {
+                    const score = parseFloat(subject.totalScore);
+                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    totalCredits += subject.credits;
+                    
+                    if (score < lowestScore) lowestScore = score;
+                    if (score > highestScore) highestScore = score;
+                });
+
+                currentGPA = totalPoints / totalCredits;
+
+                // Gợi ý dựa trên GPA
+                if (currentGPA >= 3.6) {
+                    suggestions.push({
+                        icon: 'fas fa-star',
+                        title: 'Xuất sắc!',
+                        content: 'Kết quả học tập của bạn rất tuyệt vời! Hãy duy trì phong độ này và tham gia thêm các hoạt động ngoại khóa.'
+                    });
+                } else if (currentGPA >= 3.2) {
+                    suggestions.push({
+                        icon: 'fas fa-thumbs-up',
+                        title: 'Kết quả tốt',
+                        content: 'Bạn đang học tập rất tốt. Hãy cố gắng thêm một chút để đạt mức xuất sắc!'
+                    });
+                } else if (currentGPA >= 2.5) {
+                    suggestions.push({
+                        icon: 'fas fa-chart-line',
+                        title: 'Cần cải thiện',
+                        content: 'Hãy tập trung vào các môn có điểm thấp và cải thiện phương pháp học tập.'
+                    });
+                } else {
+                    suggestions.push({
+                        icon: 'fas fa-exclamation-triangle',
+                        title: 'Cần nỗ lực hơn',
+                        content: 'Kết quả học tập cần được cải thiện đáng kể. Hãy tìm kiếm sự hỗ trợ từ giảng viên và bạn bè.'
+                    });
+                }
+
+                // Gợi ý về môn học
+                if (lowestScore < 5.0) {
+                    suggestions.push({
+                        icon: 'fas fa-book',
+                        title: 'Tập trung vào môn yếu',
+                        content: 'Bạn có môn học với điểm số thấp. Hãy dành thêm thời gian ôn tập và tìm hiểu sâu hơn.'
+                    });
+                }
+
+                if (totalCredits < 15) {
+                    suggestions.push({
+                        icon: 'fas fa-calendar-plus',
+                        title: 'Đăng ký thêm môn',
+                        content: 'Số tín chỉ hiện tại chưa đủ 15. Hãy đăng ký thêm môn học để đủ điều kiện xét học bổng.'
+                    });
+                }
+
+                // Gợi ý học tập chung
+                suggestions.push({
+                    icon: 'fas fa-lightbulb',
+                    title: 'Mẹo học tập',
+                    content: 'Hãy duy trì thói quen học đều đặn, tham gia đầy đủ các buổi học và hoàn thành bài tập đúng hạn.'
+                });
+            }
+
+            suggestionsContainer.innerHTML = suggestions.map(suggestion => `
+                <div class="suggestion-item">
+                    <i class="${suggestion.icon}" style="margin-right: 10px;"></i>
+                    <strong>${suggestion.title}:</strong> ${suggestion.content}
+                </div>
+            `).join('');
+        }
+
+        // Chuyển đổi học kỳ
+        function switchSemester(semester) {
+            studentData.currentSemester = semester;
+            
+            // Cập nhật tab active
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-semester="${semester}"]`).classList.add('active');
+            
+            updateDisplay();
+            generateAISuggestions();
+        }
+
+        // Hiển thị chat AI
+        function showAIChat() {
+            document.getElementById('aiChatModal').style.display = 'block';
+        }
+
+        // Đóng chat AI
+        function closeAIChat() {
+            document.getElementById('aiChatModal').style.display = 'none';
+        }
+
+        // Gửi tin nhắn chat
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Hiển thị tin nhắn người dùng
+            chatMessages.innerHTML += `
+                <div style="text-align: right; margin: 10px 0;">
+                    <div style="background: #667eea; color: white; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
+                        <strong>Bạn:</strong> ${message}
+                    </div>
+                </div>
+            `;
+
+            // Tạo phản hồi AI
+            const aiResponse = generateAIResponse(message);
+            
+            setTimeout(() => {
+                chatMessages.innerHTML += `
+                    <div style="margin: 10px 0;">
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
+                            <strong>AI:</strong> ${aiResponse}
+                        </div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Tạo phản hồi AI
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Tính toán thống kê hiện tại
+            let totalSubjects = 0;
+            let totalGPA = 0;
+            let totalCredits = 0;
+            
+            Object.values(studentData.semesters).forEach(semester => {
+                semester.forEach(subject => {
+                    totalSubjects++;
+                    totalGPA += parseFloat(subject.gpa4) * subject.credits;
+                    totalCredits += subject.credits;
+                });
+            });
+            
+            const currentGPA = totalCredits > 0 ? (totalGPA / totalCredits).toFixed(2) : 0;
+
+            if (lowerMessage.includes('gpa') || lowerMessage.includes('điểm')) {
+                return `GPA tích lũy hiện tại của bạn là ${currentGPA}/4.0 với tổng ${totalCredits} tín chỉ. ${currentGPA >= 3.2 ? 'Kết quả rất tốt!' : 'Hãy cố gắng cải thiện thêm nhé!'}`;
+            }
+            
+            if (lowerMessage.includes('học bổng') || lowerMessage.includes('scholarship')) {
+                if (currentGPA >= 3.6) {
+                    return 'Tuyệt vời! Với GPA hiện tại, bạn đủ điều kiện xét học bổng khuyến khích học tập. Hãy duy trì kết quả này!';
+                } else if (currentGPA >= 3.2) {
+                    return 'Bạn đang có cơ hội tốt để xét học bổng. Hãy cố gắng nâng cao thêm một chút điểm số!';
+                } else {
+                    return `Để đủ điều kiện xét học bổng, bạn cần GPA tối thiểu 3.2. Hiện tại bạn đang ở mức ${currentGPA}, hãy cố gắng cải thiện!`;
+                }
+            }
+            
+            if (lowerMessage.includes('cải thiện') || lowerMessage.includes('học tập')) {
+                return 'Một số gợi ý để cải thiện kết quả học tập: 1) Tham gia đầy đủ các buổi học, 2) Hoàn thành bài tập đúng hạn, 3) Ôn tập thường xuyên, 4) Tham gia nhóm học tập, 5) Tìm kiếm sự hỗ trợ khi cần thiết.';
+            }
+            
+            if (lowerMessage.includes('môn học') || lowerMessage.includes('subject')) {
+                return `Bạn đã học tổng cộng ${totalSubjects} môn học. Hãy cho tôi biết bạn muốn tìm hiểu thông tin gì cụ thể về các môn học?`;
+            }
+            
+            if (lowerMessage.includes('tốt nghiệp')) {
+                const gradeLevel = getGradeLevel(parseFloat(currentGPA));
+                return `Với GPA hiện tại ${currentGPA}, bạn sẽ tốt nghiệp loại ${gradeLevel.text}. ${currentGPA >= 3.2 ? 'Chúc mừng!' : 'Hãy cố gắng cải thiện để có kết quả tốt hơn!'}`;
+            }
+
+            // Phản hồi mặc định
+            const responses = [
+                'Tôi hiểu bạn đang quan tâm về kết quả học tập. Bạn có thể hỏi tôi về GPA, học bổng, cách cải thiện điểm số, hoặc bất kỳ thắc mắc nào khác!',
+                'Hãy cho tôi biết cụ thể bạn muốn tìm hiểu điều gì? Tôi có thể giúp phân tích điểm số, đưa ra lời khuyên học tập, hoặc giải đáp thắc mắc.',
+                'Tôi ở đây để hỗ trợ bạn! Bạn có thể hỏi về GPA, xếp loại tốt nghiệp, điều kiện học bổng, hoặc cách cải thiện kết quả học tập.',
+                'Cảm ơn bạn đã chat với tôi! Tôi có thể giúp bạn phân tích kết quả học tập và đưa ra những gợi ý hữu ích. Bạn muốn biết điều gì?'
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Dự đoán điểm cần thiết
+        function predictRequiredScore() {
+            const targetGPA = prompt('Nhập GPA mục tiêu (thang điểm 4):');
+            if (!targetGPA || isNaN(targetGPA) || targetGPA < 0 || targetGPA > 4) {
+                alert('Vui lòng nhập GPA hợp lệ (0-4)!');
+                return;
+            }
+
+            const remainingCredits = prompt('Nhập số tín chỉ còn lại dự kiến:');
+            if (!remainingCredits || isNaN(remainingCredits) || remainingCredits <= 0) {
+                alert('Vui lòng nhập số tín chỉ hợp lệ!');
+                return;
+            }
+
+            // Tính toán
+            let currentTotalPoints = 0;
+            let currentTotalCredits = 0;
+
+            Object.values(studentData.semesters).forEach(semester => {
+                semester.forEach(subject => {
+                    currentTotalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    currentTotalCredits += subject.credits;
+                });
+            });
+
+            const totalCreditsAfter = currentTotalCredits + parseInt(remainingCredits);
+            const requiredTotalPoints = parseFloat(targetGPA) * totalCreditsAfter;
+            const requiredPointsForRemaining = requiredTotalPoints - currentTotalPoints;
+            const requiredGPAForRemaining = requiredPointsForRemaining / parseInt(remainingCredits);
+
+            let message = `Để đạt GPA ${targetGPA}:\n`;
+            message += `- GPA hiện tại: ${(currentTotalPoints / currentTotalCredits).toFixed(2)}\n`;
+            message += `- Số tín chỉ hiện tại: ${currentTotalCredits}\n`;
+            message += `- Số tín chỉ còn lại: ${remainingCredits}\n`;
+            message += `- GPA cần đạt cho ${remainingCredits} tín chỉ còn lại: ${requiredGPAForRemaining.toFixed(2)}\n`;
+
+            if (requiredGPAForRemaining > 4.0) {
+                message += `\n⚠️ Không thể đạt được mục tiêu này!`;
+            } else if (requiredGPAForRemaining < 0) {
+                message += `\n🎉 Bạn đã vượt mục tiêu!`;
+            } else {
+                message += `\n💡 Mục tiêu có thể đạt được!`;
+            }
+
+            alert(message);
+        }
+
+        // Export/Import functions
+        function exportData() {
+            const dataStr = JSON.stringify(studentData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'hub_gpa_data.json';
+            link.click();
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        studentData = JSON.parse(e.target.result);
+                        saveData();
+                        updateDisplay();
+                        generateAISuggestions();
+                        alert('Dữ liệu đã được import thành công!');
+                    } catch (error) {
+                        alert('Lỗi khi import dữ liệu. Vui lòng kiểm tra file!');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Thêm nút Export/Import
+        function addExportImportButtons() {
+            const header = document.querySelector('.header');
+            header.innerHTML += `
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-success" onclick="exportData()" style="margin-right: 10px;">
+                        <i class="fas fa-download"></i> Xuất dữ liệu
+                    </button>
+                    <label class="btn btn-primary" style="cursor: pointer;">
+                        <i class="fas fa-upload"></i> Nhập dữ liệu
+                        <input type="file" accept=".json" onchange="importData(event)" style="display: none;">
+                    </label>
+                </div>
+            `;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load dữ liệu
+            loadData();
+            
+            // Thiết lập tab listeners
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchSemester(parseInt(this.dataset.semester));
+                });
+            });
+
+            // Xử lý Enter trong chat
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Cập nhật hiển thị ban đầu
+            updateDisplay();
+            generateAISuggestions();
+            addExportImportButtons();
+
+            // Đóng modal khi click outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('aiChatModal');
+                if (event.target === modal) {
+                    closeAIChat();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
