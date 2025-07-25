@@ -14,9 +14,10 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 50%, #1a365d 75%, #0d1b2a 100%);
+            background-attachment: fixed;
             min-height: 100vh;
-            color: #333;
+            color: #e2e8f0;
         }
 
         .container {
@@ -27,19 +28,24 @@
 
         .header {
             text-align: center;
-            color: white;
+            color: #ffffff;
             margin-bottom: 30px;
         }
 
         .header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed, #90cdf4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header p {
             font-size: 1.2em;
             opacity: 0.9;
+            color: #cbd5e0;
         }
 
         .main-content {
@@ -50,24 +56,27 @@
         }
 
         .card {
-            background: white;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 83, 100, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(79, 209, 199, 0.1);
+            color: #e2e8f0;
         }
 
         .card h3 {
-            color: #2c3e50;
+            color: #4fd1c7;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             font-size: 1.5em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .card h3 i {
             margin-right: 10px;
-            color: #667eea;
+            color: #63b3ed;
         }
 
         /* Semester Tabs */
@@ -81,25 +90,27 @@
 
         .tab {
             padding: 12px 20px;
-            background: #f8f9fa;
-            border: none;
+            background: rgba(26, 54, 93, 0.8);
+            border: 1px solid rgba(79, 209, 199, 0.3);
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
-            color: #666;
+            color: #cbd5e0;
         }
 
         .tab.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
+            box-shadow: 0 5px 15px rgba(79, 209, 199, 0.4);
             transform: translateY(-2px);
+            border-color: transparent;
         }
 
         .tab:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(79, 209, 199, 0.3);
+            border-color: #4fd1c7;
         }
 
         /* Form Styles */
@@ -111,22 +122,29 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #2c3e50;
+            color: #4fd1c7;
         }
 
         .form-group input {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid #e9ecef;
+            border: 2px solid rgba(79, 209, 199, 0.3);
             border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s ease;
+            background: rgba(13, 27, 42, 0.8);
+            color: #e2e8f0;
+        }
+
+        .form-group input::placeholder {
+            color: #a0aec0;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #4fd1c7;
+            box-shadow: 0 0 0 3px rgba(79, 209, 199, 0.2);
+            background: rgba(13, 27, 42, 0.9);
         }
 
         .form-row {
@@ -148,6 +166,7 @@
             justify-content: center;
             text-decoration: none;
             margin: 5px;
+            color: white;
         }
 
         .btn i {
@@ -155,35 +174,51 @@
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
         }
 
         .btn-success {
-            background: linear-gradient(45deg, #2ed573, #1e90ff);
+            background: linear-gradient(45deg, #48bb78, #38b2ac);
             color: white;
         }
 
         .btn-danger {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #f56565, #e53e3e);
             color: white;
+        }
+
+        .btn-language {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: 2px solid rgba(79, 209, 199, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(79, 209, 199, 0.4);
+        }
+
+        .btn-language:hover {
+            border-color: #4fd1c7;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
         /* Average Display */
         .average-display {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
             border-radius: 15px;
             margin: 20px 0;
             font-size: 1.5em;
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(79, 209, 199, 0.3);
         }
 
         /* Subject List */
@@ -198,15 +233,17 @@
             gap: 15px;
             align-items: center;
             padding: 15px;
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             border-radius: 10px;
             margin-bottom: 10px;
             transition: all 0.3s ease;
         }
 
         .subject-item:hover {
-            background: #e9ecef;
+            background: rgba(13, 27, 42, 0.8);
             transform: translateX(5px);
+            border-color: #4fd1c7;
         }
 
         .subject-scores {
@@ -215,12 +252,13 @@
         }
 
         .score-item {
-            background: white;
+            background: rgba(79, 209, 199, 0.2);
             padding: 5px 10px;
             border-radius: 8px;
             font-size: 12px;
             font-weight: 600;
-            color: #666;
+            color: #4fd1c7;
+            border: 1px solid rgba(79, 209, 199, 0.3);
         }
 
         /* Grade Levels */
@@ -232,11 +270,11 @@
             text-align: center;
         }
 
-        .grade-excellent { background: #ff6b6b; color: white; }
-        .grade-good { background: #4834d4; color: white; }
-        .grade-fair { background: #f39c12; color: white; }
-        .grade-average { background: #2ed573; color: white; }
-        .grade-poor { background: #95a5a6; color: white; }
+        .grade-excellent { background: #4fd1c7; color: #0d1b2a; }
+        .grade-good { background: #63b3ed; color: #0d1b2a; }
+        .grade-fair { background: #90cdf4; color: #0d1b2a; }
+        .grade-average { background: #48bb78; color: white; }
+        .grade-poor { background: #a0aec0; color: #0d1b2a; }
 
         /* Statistics */
         .stats-grid {
@@ -247,37 +285,41 @@
         }
 
         .stat-card {
-            background: white;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 83, 100, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             padding: 20px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .stat-number {
             font-size: 2.5em;
             font-weight: bold;
-            color: #667eea;
+            color: #4fd1c7;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .stat-label {
-            color: #666;
+            color: #cbd5e0;
             font-weight: 500;
         }
 
         /* GPA Progress */
         .gpa-progress {
-            background: #e9ecef;
+            background: rgba(13, 27, 42, 0.8);
             height: 20px;
             border-radius: 10px;
             overflow: hidden;
             margin: 10px 0;
+            border: 1px solid rgba(79, 209, 199, 0.3);
         }
 
         .gpa-progress-bar {
             height: 100%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
             transition: width 0.5s ease;
             border-radius: 10px;
         }
@@ -291,16 +333,23 @@
         }
 
         .year-item {
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .year-item:hover {
+            border-color: #4fd1c7;
+            background: rgba(13, 27, 42, 0.8);
         }
 
         .year-number {
             font-size: 1.5em;
             font-weight: bold;
-            color: #667eea;
+            color: #4fd1c7;
         }
 
         /* Alerts */
@@ -309,18 +358,19 @@
             border-radius: 10px;
             margin: 15px 0;
             display: none;
+            border: 1px solid;
         }
 
         .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: rgba(72, 187, 120, 0.2);
+            color: #48bb78;
+            border-color: #48bb78;
         }
 
         .alert-warning {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
+            background: rgba(237, 137, 54, 0.2);
+            color: #ed8936;
+            border-color: #ed8936;
         }
 
         /* AI Suggestions */
@@ -330,11 +380,12 @@
         }
 
         .suggestion-item {
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 10px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #4fd1c7;
         }
 
         /* Modals */
@@ -351,12 +402,15 @@
         }
 
         .modal-content {
-            background: white;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(45, 83, 100, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(79, 209, 199, 0.3);
             border-radius: 20px;
             padding: 30px;
             max-width: 600px;
             margin: 50px auto;
             position: relative;
+            color: #e2e8f0;
         }
 
         .close {
@@ -365,22 +419,22 @@
             right: 20px;
             font-size: 28px;
             cursor: pointer;
-            color: #999;
+            color: #a0aec0;
         }
 
         .close:hover {
-            color: #333;
+            color: #4fd1c7;
         }
 
         /* Chat Messages */
         .chat-messages {
             height: 300px;
             overflow-y: auto;
-            border: 1px solid #e9ecef;
+            border: 1px solid rgba(79, 209, 199, 0.3);
             border-radius: 10px;
             padding: 15px;
             margin: 15px 0;
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
         }
 
         .chat-input-container {
@@ -391,9 +445,11 @@
         .chat-input-container input {
             flex: 1;
             padding: 12px 15px;
-            border: 2px solid #e9ecef;
+            border: 2px solid rgba(79, 209, 199, 0.3);
             border-radius: 25px;
             font-size: 16px;
+            background: rgba(13, 27, 42, 0.8);
+            color: #e2e8f0;
         }
 
         /* Charts Modal */
@@ -410,13 +466,16 @@
         }
 
         .charts-modal-content {
-            background: white;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(45, 83, 100, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(79, 209, 199, 0.3);
             border-radius: 20px;
             padding: 30px;
             max-width: 1200px;
             margin: 20px auto;
             position: relative;
             min-height: 80vh;
+            color: #e2e8f0;
         }
 
         .charts-grid {
@@ -427,10 +486,11 @@
         }
 
         .chart-container {
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             position: relative;
             height: 400px;
         }
@@ -443,18 +503,20 @@
         }
 
         .stat-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
             padding: 20px;
             border-radius: 15px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(79, 209, 199, 0.3);
         }
 
         .chart-tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
-            background: #f8f9fa;
+            background: rgba(13, 27, 42, 0.6);
+            border: 1px solid rgba(79, 209, 199, 0.2);
             border-radius: 10px;
             padding: 5px;
         }
@@ -466,12 +528,13 @@
             transition: all 0.3s ease;
             font-weight: 500;
             margin: 0 5px;
+            color: #cbd5e0;
         }
 
         .chart-tab.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
+            box-shadow: 0 5px 15px rgba(79, 209, 199, 0.3);
         }
 
         .chart-section {
@@ -480,6 +543,44 @@
 
         .chart-section.active {
             display: block;
+        }
+
+        /* Language Button Specific Styles */
+        .language-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn-language {
+            font-size: 18px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: 2px solid rgba(79, 209, 199, 0.4);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-language::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-language:hover::before {
+            left: 100%;
+        }
+
+        .btn-language:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            border-color: #4fd1c7;
         }
 
         /* Responsive Design */
@@ -537,8 +638,9 @@
             bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
+            background: rgba(13, 27, 42, 0.9);
+            color: #4fd1c7;
+            border: 1px solid rgba(79, 209, 199, 0.3);
             padding: 8px 12px;
             border-radius: 6px;
             font-size: 12px;
@@ -547,18 +649,45 @@
             pointer-events: none;
         }
 
-        /* Welcome message */
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
         kbd {
-            background: rgba(255,255,255,0.2);
+            background: rgba(79, 209, 199, 0.2);
+            border: 1px solid rgba(79, 209, 199, 0.3);
             padding: 2px 6px;
             border-radius: 4px;
             font-size: 12px;
             font-family: monospace;
+            color: #4fd1c7;
+        }
+
+        /* Additional International Theme Elements */
+        .international-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            color: #0d1b2a;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(13, 27, 42, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #4fd1c7, #63b3ed);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #38b2ac, #4299e1);
         }
     </style>
 </head>
@@ -567,7 +696,15 @@
         <!-- Header -->
         <div class="header">
             <h1><i class="fas fa-graduation-cap"></i> HUB GPA Calculator</h1>
+            <span class="international-badge">International Edition</span>
             <p>Hệ thống tính điểm GPA thông minh - Hỗ trợ với AI Assistant</p>
+            
+            <!-- Language Section -->
+            <div class="language-section">
+                <button class="btn btn-language" onclick="openLanguagePage()">
+                    <i class="fas fa-globe"></i> Ngoại ngữ
+                </button>
+            </div>
             
             <!-- Action Buttons -->
             <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
@@ -578,13 +715,13 @@
                     <i class="fas fa-upload"></i> Nhập dữ liệu
                     <input type="file" accept=".json" onchange="importData(event)" style="display: none;">
                 </label>
-                <button class="btn btn-primary" onclick="showChartsModal()" style="background: linear-gradient(45deg, #2ed573, #1e90ff);">
+                <button class="btn btn-primary" onclick="showChartsModal()" style="background: linear-gradient(45deg, #48bb78, #38b2ac);">
                     <i class="fas fa-chart-bar"></i> Xem biểu đồ
                 </button>
-                <button class="btn btn-danger" onclick="resetAllData()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">
+                <button class="btn btn-danger" onclick="resetAllData()">
                     <i class="fas fa-trash-alt"></i> Xóa tất cả
                 </button>
-                <button class="btn btn-primary" onclick="showHelpModal()" style="background: linear-gradient(45deg, #4834d4, #686de0);">
+                <button class="btn btn-primary" onclick="showHelpModal()" style="background: linear-gradient(45deg, #667eea, #764ba2);">
                     <i class="fas fa-question-circle"></i> Hướng dẫn
                 </button>
             </div>
@@ -657,7 +794,7 @@
             <div class="card">
                 <h3><i class="fas fa-list"></i> Danh sách môn học</h3>
                 <div class="subjects-list" id="subjectsList">
-                    <p style="text-align: center; color: #999; padding: 20px;">
+                    <p style="text-align: center; color: #a0aec0; padding: 20px;">
                         Chưa có môn học nào. Hãy thêm môn học đầu tiên!
                     </p>
                 </div>
@@ -668,121 +805,87 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" id="currentGPA">0.00</div>
-                <div class="stat-label">GPA Học kỳ</div>
-                <div class="grade-level" id="currentGrade">--</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="cumulativeGPA">0.00</div>
-                <div class="stat-label">GPA Tích lũy</div>
-                <div class="grade-level" id="cumulativeGrade">--</div>
+                                <div class="stat-label">GPA Hiện tại</div>
+                <div class="gpa-progress">
+                    <div class="gpa-progress-bar" id="gpaProgressBar" style="width: 0%"></div>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" id="totalCredits">0</div>
                 <div class="stat-label">Tổng tín chỉ</div>
-                <div class="gpa-progress">
-                    <div class="gpa-progress-bar" id="gpaProgress" style="width: 0%"></div>
-                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" id="totalSubjects">0</div>
                 <div class="stat-label">Tổng môn học</div>
-                <button class="btn btn-primary" onclick="predictRequiredScore()" style="margin-top: 10px; font-size: 12px; padding: 8px 12px;">
-                    Dự đoán điểm
-                </button>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="averageGrade">--</div>
+                <div class="stat-label">Xếp loại</div>
             </div>
         </div>
 
         <!-- Year Overview -->
         <div class="card">
-            <h3><i class="fas fa-calendar-alt"></i> Tổng quan theo năm</h3>
+            <h3><i class="fas fa-calendar-alt"></i> Tổng quan theo năm học</h3>
             <div class="year-overview">
                 <div class="year-item">
-                    <div class="year-number" id="year1GPA">--</div>
+                    <div class="year-number" id="year1GPA">0.00</div>
                     <div>Năm 1</div>
+                    <small>HK 1-2</small>
                 </div>
                 <div class="year-item">
-                    <div class="year-number" id="year2GPA">--</div>
+                    <div class="year-number" id="year2GPA">0.00</div>
                     <div>Năm 2</div>
+                    <small>HK 3-4</small>
                 </div>
                 <div class="year-item">
-                    <div class="year-number" id="year3GPA">--</div>
+                    <div class="year-number" id="year3GPA">0.00</div>
                     <div>Năm 3</div>
+                    <small>HK 5-6</small>
                 </div>
                 <div class="year-item">
-                    <div class="year-number" id="year4GPA">--</div>
+                    <div class="year-number" id="year4GPA">0.00</div>
                     <div>Năm 4</div>
+                    <small>HK 7-8</small>
                 </div>
             </div>
         </div>
 
-        <!-- Additional Stats -->
-        <div class="card" style="margin-top: 30px;">
-            <h3><i class="fas fa-chart-line"></i> Thống kê chi tiết</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div>
-                    <strong>Điểm trung bình:</strong>
-                    <span id="averageScore">0.00</span>
-                </div>
-                <div>
-                    <strong>Môn cao nhất:</strong>
-                    <span id="highestSubject">--</span>
-                </div>
-                <div>
-                    <strong>Môn thấp nhất:</strong>
-                    <span id="lowestSubject">--</span>
-                </div>
-                <div>
-                    <strong>Tổng môn học:</strong>
-                    <span id="totalSubjects">0</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="margin-top: 30px;">
-            <h3><i class="fas fa-robot"></i> AI Assistant</h3>
+        <!-- AI Suggestions -->
+        <div class="card">
+            <h3><i class="fas fa-robot"></i> AI Assistant - Gợi ý học tập</h3>
             <div class="suggestions-content" id="suggestionsContent">
                 <div class="suggestion-item">
-                    <i class="fas fa-info-circle" style="margin-right: 10px;"></i>
-                    <strong>Bắt đầu nhập điểm:</strong> Hãy thêm các môn học và điểm số để AI có thể phân tích và đưa ra gợi ý phù hợp.
+                    <strong>💡 Gợi ý:</strong> Hãy thêm điểm số để AI có thể đưa ra những lời khuyên phù hợp cho bạn!
                 </div>
             </div>
-            <button class="btn btn-primary" onclick="showAIChat()" style="width: 100%; margin-top: 15px;">
-                <i class="fas fa-comments"></i> Chat với AI
+            <button class="btn btn-primary" onclick="openChatModal()" style="width: 100%; margin-top: 15px;">
+                <i class="fas fa-comments"></i> Chat với AI Assistant
             </button>
         </div>
 
         <!-- Alerts -->
-        <div class="alert alert-success" id="scholarshipInfo">
-            <strong><i class="fas fa-award"></i> Thông báo học bổng:</strong>
-            <span id="scholarshipText"></span>
+        <div class="alert alert-success" id="successAlert">
+            <i class="fas fa-check-circle"></i> <span id="successMessage"></span>
         </div>
-
-        <div class="alert alert-warning" id="warningCard">
-            <strong><i class="fas fa-exclamation-triangle"></i> Cảnh báo:</strong>
-            <span id="warningText"></span>
+        <div class="alert alert-warning" id="warningAlert">
+            <i class="fas fa-exclamation-triangle"></i> <span id="warningMessage"></span>
         </div>
     </div>
 
     <!-- AI Chat Modal -->
-    <div class="modal" id="aiChatModal">
+    <div id="chatModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeAIChat()">&times;</span>
-            <h3><i class="fas fa-robot"></i> AI Assistant - Tư vấn học tập</h3>
+            <span class="close" onclick="closeChatModal()">&times;</span>
+            <h2><i class="fas fa-robot"></i> AI Assistant</h2>
             <div class="chat-messages" id="chatMessages">
-                <div style="text-align: center; color: #999; padding: 20px;">
-                    <i class="fas fa-robot" style="font-size: 48px; margin-bottom: 15px;"></i>
-                    <p>Xin chào! Tôi là AI Assistant. Tôi có thể giúp bạn:</p>
-                    <ul style="text-align: left; display: inline-block;">
-                        <li>Phân tích kết quả học tập</li>
-                        <li>Tư vấn cách cải thiện GPA</li>
-                        <li>Thông tin về học bổng</li>
-                        <li>Dự đoán điểm cần thiết</li>
-                    </ul>
+                <div style="color: #4fd1c7; margin-bottom: 10px;">
+                    <strong>AI Assistant:</strong> Xin chào! Tôi là trợ lý AI của bạn. Hãy hỏi tôi về việc học tập, cách cải thiện điểm số, hoặc bất kỳ điều gì liên quan đến GPA của bạn!
                 </div>
             </div>
             <div class="chat-input-container">
-                <input type="text" id="chatInput" placeholder="Nhập câu hỏi của bạn...">
-                <button class="btn btn-primary" onclick="sendMessage()">
+                <input type="text" id="chatInput" placeholder="Nhập câu hỏi của bạn..." onkeypress="handleChatEnter(event)">
+                <button class="btn btn-primary" onclick="sendChatMessage()">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
@@ -790,120 +893,137 @@
     </div>
 
     <!-- Charts Modal -->
-    <div class="charts-modal" id="chartsModal">
+    <div id="chartsModal" class="charts-modal">
         <div class="charts-modal-content">
-            <span class="close" onclick="closeChartsModal()" style="font-size: 28px;">&times;</span>
+            <span class="close" onclick="closeChartsModal()" style="color: #a0aec0; font-size: 28px;">&times;</span>
+            <h2><i class="fas fa-chart-bar"></i> Biểu đồ phân tích GPA</h2>
             
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="color: #2c3e50; font-size: 2.5em; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                    <i class="fas fa-chart-line"></i> Biểu đồ thống kê điểm số
-                </h2>
-                <p>Trực quan hóa kết quả học tập qua 8 học kỳ</p>
-            </div>
-
-            <!-- Chart Stats -->
-            <div class="chart-stats">
-                <div class="stat-item">
-                    <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;" id="totalSubjectsChart">0</div>
-                    <div style="font-size: 14px; opacity: 0.9;">Tổng môn học</div>
-                </div>
-                <div class="stat-item">
-                    <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;" id="avgGPAChart">0.00</div>
-                                        <div style="font-size: 14px; opacity: 0.9;">GPA trung bình</div>
-                </div>
-                <div class="stat-item">
-                    <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;" id="totalCreditsChart">0</div>
-                    <div style="font-size: 14px; opacity: 0.9;">Tổng tín chỉ</div>
-                </div>
-                <div class="stat-item">
-                    <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;" id="completedSemestersChart">0</div>
-                    <div style="font-size: 14px; opacity: 0.9;">Học kỳ hoàn thành</div>
-                </div>
-            </div>
-
-            <!-- Chart Tabs -->
             <div class="chart-tabs">
-                <div class="chart-tab active" onclick="switchChartTab('overview')">
-                    <i class="fas fa-chart-line"></i> Tổng quan
-                </div>
-                <div class="chart-tab" onclick="switchChartTab('distribution')">
-                    <i class="fas fa-chart-pie"></i> Phân bố
-                </div>
-                <div class="chart-tab" onclick="switchChartTab('comparison')">
-                    <i class="fas fa-chart-bar"></i> So sánh
-                </div>
-                <div class="chart-tab" onclick="switchChartTab('analysis')">
-                    <i class="fas fa-chart-area"></i> Phân tích
-                </div>
+                <div class="chart-tab active" onclick="showChartSection('overview')">Tổng quan</div>
+                <div class="chart-tab" onclick="showChartSection('semester')">Theo học kỳ</div>
+                <div class="chart-tab" onclick="showChartSection('subject')">Theo môn học</div>
+                <div class="chart-tab" onclick="showChartSection('prediction')">Dự đoán</div>
             </div>
 
-            <!-- Chart Sections -->
-            <div class="chart-section active" id="overviewSection">
-                <div class="charts-grid">
-                    <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Xu hướng GPA qua các học kỳ
-                        </div>
-                        <canvas id="gpaChart"></canvas>
+            <!-- Overview Charts -->
+            <div id="overviewCharts" class="chart-section active">
+                <div class="chart-stats">
+                    <div class="stat-item">
+                        <div style="font-size: 2em; margin-bottom: 5px;" id="chartCurrentGPA">0.00</div>
+                        <div>GPA Hiện tại</div>
                     </div>
-                    <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            GPA theo năm học
-                        </div>
-                        <canvas id="yearlyChart"></canvas>
+                    <div class="stat-item">
+                        <div style="font-size: 2em; margin-bottom: 5px;" id="chartTotalCredits">0</div>
+                        <div>Tổng tín chỉ</div>
+                    </div>
+                    <div class="stat-item">
+                        <div style="font-size: 2em; margin-bottom: 5px;" id="chartHighestGPA">0.00</div>
+                        <div>GPA cao nhất</div>
+                    </div>
+                    <div class="stat-item">
+                        <div style="font-size: 2em; margin-bottom: 5px;" id="chartLowestGPA">0.00</div>
+                        <div>GPA thấp nhất</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="chart-section" id="distributionSection">
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Phân bố điểm các môn học
-                        </div>
-                        <canvas id="subjectChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Phân bố điểm theo thang 4</h4>
+                        <canvas id="gradeDistributionChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Phân bố xếp loại
-                        </div>
-                        <canvas id="gradeChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Tiến độ GPA theo thời gian</h4>
+                        <canvas id="gpaProgressChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="chart-section" id="comparisonSection">
+            <!-- Semester Charts -->
+            <div id="semesterCharts" class="chart-section">
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            So sánh điểm trung bình các thành phần
-                        </div>
-                        <canvas id="componentChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">GPA theo học kỳ</h4>
+                        <canvas id="semesterGPAChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Tín chỉ theo học kỳ
-                        </div>
-                        <canvas id="creditsChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Số tín chỉ theo học kỳ</h4>
+                        <canvas id="semesterCreditsChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="chart-section" id="analysisSection">
+            <!-- Subject Charts -->
+            <div id="subjectCharts" class="chart-section">
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Phân tích xu hướng cải thiện
-                        </div>
-                        <canvas id="trendChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Top môn học điểm cao</h4>
+                        <canvas id="topSubjectsChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <div style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 18px; font-weight: bold;">
-                            Dự đoán GPA tương lai
-                        </div>
-                        <canvas id="predictionChart"></canvas>
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Phân tích thành phần điểm</h4>
+                        <canvas id="scoreComponentsChart"></canvas>
                     </div>
                 </div>
+            </div>
+
+            <!-- Prediction Charts -->
+            <div id="predictionCharts" class="chart-section">
+                <div class="chart-container" style="grid-column: 1 / -1;">
+                    <h4 style="text-align: center; margin-bottom: 20px; color: #4fd1c7;">Dự đoán GPA tương lai</h4>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <label style="color: #4fd1c7; margin-right: 10px;">GPA mục tiêu:</label>
+                        <input type="number" id="targetGPA" min="0" max="4" step="0.1" value="3.5" 
+                               style="padding: 8px; border-radius: 5px; border: 1px solid #4fd1c7; background: rgba(13, 27, 42, 0.8); color: #e2e8f0;">
+                        <button class="btn btn-primary" onclick="calculatePrediction()" style="margin-left: 10px;">
+                            <i class="fas fa-calculator"></i> Tính toán
+                        </button>
+                    </div>
+                    <div id="predictionResults" style="background: rgba(13, 27, 42, 0.6); padding: 20px; border-radius: 10px; border: 1px solid rgba(79, 209, 199, 0.2);">
+                        <p style="text-align: center; color: #a0aec0;">Nhập GPA mục tiêu và nhấn "Tính toán" để xem dự đoán</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeHelpModal()">&times;</span>
+            <h2><i class="fas fa-question-circle"></i> Hướng dẫn sử dụng</h2>
+            
+            <div style="max-height: 400px; overflow-y: auto;">
+                <h3 style="color: #4fd1c7; margin-top: 20px;">🎯 Cách sử dụng cơ bản:</h3>
+                <ul style="line-height: 1.8; color: #cbd5e0;">
+                    <li><strong>Chọn học kỳ:</strong> Click vào các tab HK 1-8 để chuyển đổi giữa các học kỳ</li>
+                    <li><strong>Thêm môn học:</strong> Nhập tên môn, số tín chỉ và các điểm thành phần</li>
+                    <li><strong>Xem thống kê:</strong> GPA, tổng tín chỉ và xếp loại được cập nhật tự động</li>
+                    <li><strong>Xuất/Nhập dữ liệu:</strong> Sao lưu và khôi phục dữ liệu bằng file JSON</li>
+                </ul>
+
+                <h3 style="color: #4fd1c7; margin-top: 20px;">📊 Thang điểm:</h3>
+                <ul style="line-height: 1.8; color: #cbd5e0;">
+                    <li><strong>Xuất sắc (A):</strong> 8.5 - 10.0 (GPA: 3.7 - 4.0)</li>
+                    <li><strong>Giỏi (B):</strong> 7.0 - 8.4 (GPA: 3.0 - 3.6)</li>
+                    <li><strong>Khá (C):</strong> 5.5 - 6.9 (GPA: 2.0 - 2.9)</li>
+                    <li><strong>Trung bình (D):</strong> 4.0 - 5.4 (GPA: 1.0 - 1.9)</li>
+                    <li><strong>Yếu (F):</strong> < 4.0 (GPA: < 1.0)</li>
+                </ul>
+
+                <h3 style="color: #4fd1c7; margin-top: 20px;">🔧 Tính năng nâng cao:</h3>
+                <ul style="line-height: 1.8; color: #cbd5e0;">
+                    <li><strong>AI Assistant:</strong> Chat với AI để nhận tư vấn học tập</li>
+                    <li><strong>Biểu đồ:</strong> Xem phân tích trực quan về tiến độ học tập</li>
+                    <li><strong>Dự đoán:</strong> Tính toán điểm cần thiết để đạt GPA mục tiêu</li>
+                    <li><strong>Phím tắt:</strong> <kbd>Enter</kbd> để thêm môn, <kbd>Esc</kbd> để đóng modal</li>
+                </ul>
+
+                <h3 style="color: #4fd1c7; margin-top: 20px;">🌟 Mẹo sử dụng:</h3>
+                <ul style="line-height: 1.8; color: #cbd5e0;">
+                    <li>Cập nhật điểm thường xuyên để theo dõi tiến độ</li>
+                    <li>Sử dụng tính năng dự đoán để lập kế hoạch học tập</li>
+                    <li>Chat với AI để nhận lời khuyên cải thiện điểm số</li>
+                    <li>Xuất dữ liệu định kỳ để sao lưu</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -912,79 +1032,71 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        // Global Variables
-        let studentData = {
-            semesters: {
-                1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []
-            },
-            currentSemester: 1
-        };
+        // Global variables
+        let currentSemester = 1;
+        let semesterData = {};
+        let charts = {};
 
-        // Data Management
-        function saveData() {
-            localStorage.setItem('hubGPAData', JSON.stringify(studentData));
+        // Initialize data structure for all semesters
+        for (let i = 1; i <= 8; i++) {
+            semesterData[i] = [];
         }
 
-        function loadData() {
-            const saved = localStorage.getItem('hubGPAData');
-            if (saved) {
-                studentData = JSON.parse(saved);
+        // Load data from localStorage on page load
+        window.addEventListener('load', function() {
+            loadData();
+            updateDisplay();
+            generateAISuggestions();
+        });
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentSemester = parseInt(this.dataset.semester);
+                document.getElementById('currentSemesterTitle').textContent = `Học kỳ ${currentSemester}`;
+                updateDisplay();
+                clearForm();
+            });
+        });
+
+        // Real-time average calculation
+        ['attendance', 'homework', 'midterm', 'final'].forEach(id => {
+            document.getElementById(id).addEventListener('input', calculateAverage);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                const activeElement = document.activeElement;
+                if (activeElement.tagName === 'INPUT' && activeElement.closest('.card')) {
+                    e.preventDefault();
+                    addSubject();
+                }
             }
-        }
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        });
 
-        // Score Calculations
-        function calculateSubjectScore(attendance, homework, midterm, final) {
-            return attendance * 0.1 + homework * 0.2 + midterm * 0.2 + final * 0.5;
-        }
-
-        function convertTo4Scale(score10) {
-            if (score10 >= 9.0) return 4.0;
-            if (score10 >= 8.5) return 3.7;
-            if (score10 >= 8.0) return 3.5;
-            if (score10 >= 7.5) return 3.2;
-            if (score10 >= 7.0) return 3.0;
-            if (score10 >= 6.5) return 2.7;
-            if (score10 >= 6.0) return 2.5;
-            if (score10 >= 5.5) return 2.2;
-            if (score10 >= 5.0) return 2.0;
-            if (score10 >= 4.0) return 1.0;
-            return 0.0;
-        }
-
-        function getGradeLevel(gpa) {
-            if (gpa >= 3.6) return { text: 'Xuất sắc', class: 'grade-excellent' };
-            if (gpa >= 3.2) return { text: 'Giỏi', class: 'grade-good' };
-            if (gpa >= 2.5) return { text: 'Khá', class: 'grade-fair' };
-            if (gpa >= 2.0) return { text: 'Trung bình', class: 'grade-average' };
-            if (gpa >= 1.0) return { text: 'Yếu', class: 'grade-poor' };
-            return { text: 'Kém', class: 'grade-poor' };
-        }
-
-        // Real-time score calculation
-        function updateRealTimeScore() {
+        function calculateAverage() {
             const attendance = parseFloat(document.getElementById('attendance').value) || 0;
             const homework = parseFloat(document.getElementById('homework').value) || 0;
             const midterm = parseFloat(document.getElementById('midterm').value) || 0;
             const final = parseFloat(document.getElementById('final').value) || 0;
 
-            const totalScore = calculateSubjectScore(attendance, homework, midterm, final);
-            const gpa4 = convertTo4Scale(totalScore);
-            const grade = getGradeLevel(gpa4);
-
-            const display = document.getElementById('averageDisplay');
-            display.textContent = `Điểm TB: ${totalScore.toFixed(2)} (GPA: ${gpa4.toFixed(2)} - ${grade.text})`;
-            display.style.background = `linear-gradient(45deg, ${getGradeColor(gpa4)})`;
+            const average = (attendance * 0.1 + homework * 0.2 + midterm * 0.2 + final * 0.5);
+            
+            document.getElementById('averageDisplay').textContent = `Điểm TB: ${average.toFixed(2)}`;
+            document.getElementById('averageDisplay').style.background = 
+                average >= 8.5 ? 'linear-gradient(45deg, #48bb78, #38b2ac)' :
+                average >= 7.0 ? 'linear-gradient(45deg, #4fd1c7, #63b3ed)' :
+                average >= 5.5 ? 'linear-gradient(45deg, #ed8936, #f6ad55)' :
+                average >= 4.0 ? 'linear-gradient(45deg, #f56565, #fc8181)' :
+                'linear-gradient(45deg, #a0aec0, #cbd5e0)';
         }
 
-        function getGradeColor(gpa) {
-            if (gpa >= 3.6) return '#ff6b6b, #ff8e8e';
-            if (gpa >= 3.2) return '#4834d4, #686de0';
-            if (gpa >= 2.5) return '#f39c12, #f5b041';
-            if (gpa >= 2.0) return '#2ed573, #7bed9f';
-            return '#95a5a6, #b2bec3';
-        }
-
-        // Subject Management
         function addSubject() {
             const name = document.getElementById('subjectName').value.trim();
             const credits = parseInt(document.getElementById('credits').value);
@@ -993,19 +1105,26 @@
             const midterm = parseFloat(document.getElementById('midterm').value);
             const final = parseFloat(document.getElementById('final').value);
 
-            if (!name || !credits || isNaN(attendance) || isNaN(homework) || isNaN(midterm) || isNaN(final)) {
-                alert('Vui lòng nhập đầy đủ thông tin!');
+            // Validation
+            if (!name) {
+                showAlert('warning', 'Vui lòng nhập tên môn học!');
+                return;
+            }
+            if (!credits || credits < 1 || credits > 10) {
+                showAlert('warning', 'Số tín chỉ phải từ 1 đến 10!');
+                return;
+            }
+            if (isNaN(attendance) || isNaN(homework) || isNaN(midterm) || isNaN(final)) {
+                showAlert('warning', 'Vui lòng nhập đầy đủ điểm số!');
+                return;
+            }
+            if ([attendance, homework, midterm, final].some(score => score < 0 || score > 10)) {
+                showAlert('warning', 'Điểm số phải từ 0 đến 10!');
                 return;
             }
 
-            if (attendance < 0 || attendance > 10 || homework < 0 || homework > 10 || 
-                midterm < 0 || midterm > 10 || final < 0 || final > 10) {
-                alert('Điểm số phải trong khoảng 0-10!');
-                return;
-            }
-
-            const totalScore = calculateSubjectScore(attendance, homework, midterm, final);
-            const gpa4 = convertTo4Scale(totalScore);
+            const average = (attendance * 0.1 + homework * 0.2 + midterm * 0.2 + final * 0.5);
+            const gpa4 = convertToGPA4(average);
 
             const subject = {
                 id: Date.now(),
@@ -1015,17 +1134,153 @@
                 homework,
                 midterm,
                 final,
-                totalScore: totalScore.toFixed(2),
-                gpa4: gpa4.toFixed(2)
+                average,
+                gpa4
             };
 
-            studentData.semesters[studentData.currentSemester].push(subject);
+            semesterData[currentSemester].push(subject);
             saveData();
-            
-            // Clear form
-            clearForm();
             updateDisplay();
+            clearForm();
             generateAISuggestions();
+            showAlert('success', `Đã thêm môn "${name}" thành công!`);
+        }
+
+        function deleteSubject(semesterId, subjectId) {
+            if (confirm('Bạn có chắc chắn muốn xóa môn học này?')) {
+                semesterData[semesterId] = semesterData[semesterId].filter(s => s.id !== subjectId);
+                saveData();
+                updateDisplay();
+                generateAISuggestions();
+                showAlert('success', 'Đã xóa môn học thành công!');
+            }
+        }
+
+        function convertToGPA4(score) {
+            if (score >= 8.5) return 4.0;
+            if (score >= 8.0) return 3.7;
+            if (score >= 7.5) return 3.5;
+            if (score >= 7.0) return 3.0;
+            if (score >= 6.5) return 2.5;
+            if (score >= 6.0) return 2.0;
+            if (score >= 5.5) return 1.5;
+            if (score >= 5.0) return 1.0;
+            if (score >= 4.0) return 0.5;
+            return 0.0;
+        }
+
+        function getGradeLevel(score) {
+            if (score >= 8.5) return { text: 'Xuất sắc', class: 'grade-excellent' };
+            if (score >= 7.0) return { text: 'Giỏi', class: 'grade-good' };
+            if (score >= 5.5) return { text: 'Khá', class: 'grade-fair' };
+            if (score >= 4.0) return { text: 'Trung bình', class: 'grade-average' };
+            return { text: 'Yếu', class: 'grade-poor' };
+        }
+
+        function updateDisplay() {
+            updateSubjectsList();
+            updateStatistics();
+            updateYearOverview();
+        }
+
+        function updateSubjectsList() {
+            const container = document.getElementById('subjectsList');
+            const subjects = semesterData[currentSemester];
+
+            if (subjects.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #a0aec0; padding: 20px;">Chưa có môn học nào. Hãy thêm môn học đầu tiên!</p>';
+                return;
+            }
+
+            container.innerHTML = subjects.map(subject => {
+                const grade = getGradeLevel(subject.average);
+                return `
+                    <div class="subject-item">
+                        <div>
+                            <strong style="color: #4fd1c7;">${subject.name}</strong>
+                            <div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">
+                                ${subject.credits} tín chỉ
+                            </div>
+                        </div>
+                        <div class="subject-scores">
+                            <div class="score-item">CC: ${subject.attendance}</div>
+                            <div class="score-item">BT: ${subject.homework}</div>
+                            <div class="score-item">GK: ${subject.midterm}</div>
+                            <div class="score-item">CK: ${subject.final}</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: bold; color: #4fd1c7; font-size: 18px;">
+                                ${subject.average.toFixed(2)}
+                            </div>
+                            <div style="font-size: 12px; color: #a0aec0;">
+                                GPA: ${subject.gpa4.toFixed(1)}
+                            </div>
+                        </div>
+                        <div class="grade-level ${grade.class}">
+                            ${grade.text}
+                        </div>
+                        <button class="btn btn-danger" onclick="deleteSubject(${currentSemester}, ${subject.id})" 
+                                style="padding: 8px 12px; font-size: 14px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateStatistics() {
+            let totalCredits = 0;
+            let totalGradePoints = 0;
+            let totalSubjects = 0;
+
+            // Calculate overall statistics
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
+                    totalCredits += subject.credits;
+                    totalGradePoints += subject.gpa4 * subject.credits;
+                    totalSubjects++;
+                });
+            }
+
+            const currentGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
+            const gradeLevel = getGradeLevel(currentGPA * 2.5);
+
+            document.getElementById('currentGPA').textContent = currentGPA.toFixed(2);
+            document.getElementById('totalCredits').textContent = totalCredits;
+            document.getElementById('totalSubjects').textContent = totalSubjects;
+            document.getElementById('averageGrade').textContent = gradeLevel.text;
+
+            // Update progress bar
+            const progressPercentage = (currentGPA / 4) * 100;
+            document.getElementById('gpaProgressBar').style.width = `${progressPercentage}%`;
+
+            // Update chart stats
+            document.getElementById('chartCurrentGPA').textContent = currentGPA.toFixed(2);
+            document.getElementById('chartTotalCredits').textContent = totalCredits;
+        }
+
+        function updateYearOverview() {
+            const years = [
+                { semesters: [1, 2], element: 'year1GPA' },
+                { semesters: [3, 4], element: 'year2GPA' },
+                { semesters: [5, 6], element: 'year3GPA' },
+                { semesters: [7, 8], element: 'year4GPA' }
+            ];
+
+            years.forEach(year => {
+                let totalCredits = 0;
+                let totalGradePoints = 0;
+
+                year.semesters.forEach(semester => {
+                    semesterData[semester].forEach(subject => {
+                        totalCredits += subject.credits;
+                        totalGradePoints += subject.gpa4 * subject.credits;
+                    });
+                });
+
+                const yearGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
+                document.getElementById(year.element).textContent = yearGPA.toFixed(2);
+            });
         }
 
         function clearForm() {
@@ -1036,378 +1291,178 @@
             document.getElementById('midterm').value = '';
             document.getElementById('final').value = '';
             document.getElementById('averageDisplay').textContent = 'Điểm TB: --';
-            document.getElementById('averageDisplay').style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            document.getElementById('averageDisplay').style.background = 'linear-gradient(45deg, #4fd1c7, #63b3ed)';
         }
 
-        function deleteSubject(id) {
-            if (confirm('Bạn có chắc chắn muốn xóa môn học này?')) {
-                studentData.semesters[studentData.currentSemester] = 
-                    studentData.semesters[studentData.currentSemester].filter(subject => subject.id !== id);
+        function saveData() {
+            localStorage.setItem('gpaCalculatorData', JSON.stringify(semesterData));
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem('gpaCalculatorData');
+            if (saved) {
+                semesterData = JSON.parse(saved);
+            }
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(semesterData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `gpa-data-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            showAlert('success', 'Đã xuất dữ liệu thành công!');
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (confirm('Dữ liệu hiện tại sẽ bị ghi đè. Bạn có chắc chắn?')) {
+                        semesterData = imported;
+                        saveData();
+                        updateDisplay();
+                        generateAISuggestions();
+                        showAlert('success', 'Đã nhập dữ liệu thành công!');
+                    }
+                } catch (error) {
+                    showAlert('warning', 'File không hợp lệ!');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function resetAllData() {
+            if (confirm('Bạn có chắc chắn muốn xóa tất cả dữ liệu? Hành động này không thể hoàn tác!')) {
+                for (let i = 1; i <= 8; i++) {
+                    semesterData[i] = [];
+                }
                 saveData();
                 updateDisplay();
                 generateAISuggestions();
+                showAlert('success', 'Đã xóa tất cả dữ liệu!');
             }
         }
 
-        // Display Functions
-        function updateDisplay() {
-            displaySubjects();
-            calculateGPA();
-            updateStatistics();
-            updateYearlyGPA();
-            checkScholarship();
-            checkWarnings();
+        function showAlert(type, message) {
+            const alertElement = document.getElementById(type + 'Alert');
+            const messageElement = document.getElementById(type + 'Message');
+            messageElement.textContent = message;
+            alertElement.style.display = 'block';
+            setTimeout(() => {
+                alertElement.style.display = 'none';
+            }, 3000);
         }
 
-        function displaySubjects() {
-            const container = document.getElementById('subjectsList');
-            const subjects = studentData.semesters[studentData.currentSemester];
-            
-            if (subjects.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">Chưa có môn học nào. Hãy thêm môn học đầu tiên!</p>';
-                return;
-            }
-
-            container.innerHTML = subjects.map(subject => `
-                <div class="subject-item">
-                    <div>
-                        <strong>${subject.name}</strong>
-                        <br><small>${subject.credits} tín chỉ</small>
-                    </div>
-                    <div class="subject-scores">
-                        <div class="score-item">CC: ${subject.attendance}</div>
-                        <div class="score-item">BT: ${subject.homework}</div>
-                        <div class="score-item">GK: ${subject.midterm}</div>
-                        <div class="score-item">CK: ${subject.final}</div>
-                    </div>
-                    <div>Điểm 10: <strong>${subject.totalScore}</strong></div>
-                    <div>Điểm 4: <strong>${subject.gpa4}</strong></div>
-                    <div>
-                        <span class="grade-level ${getGradeLevel(parseFloat(subject.gpa4)).class}">
-                            ${getGradeLevel(parseFloat(subject.gpa4)).text}
-                        </span>
-                    </div>
-                    <div>
-                        <button class="btn btn-danger" onclick="deleteSubject(${subject.id})" style="padding: 8px 12px; font-size: 12px;">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function calculateGPA() {
-            // Current semester GPA
-            const currentSubjects = studentData.semesters[studentData.currentSemester];
-            let currentGPA = 0;
-            let currentCredits = 0;
-
-            if (currentSubjects.length > 0) {
-                let totalPoints = 0;
-                currentSubjects.forEach(subject => {
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                    currentCredits += subject.credits;
-                });
-                currentGPA = totalPoints / currentCredits;
-            }
-
-            // Cumulative GPA
-            let cumulativeGPA = 0;
-            let totalCredits = 0;
-            let totalPoints = 0;
-
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                    totalCredits += subject.credits;
-                });
-            });
-
-            if (totalCredits > 0) {
-                cumulativeGPA = totalPoints / totalCredits;
-            }
-
-            // Update display
-            document.getElementById('currentGPA').textContent = currentGPA.toFixed(2);
-            document.getElementById('cumulativeGPA').textContent = cumulativeGPA.toFixed(2);
-            document.getElementById('totalCredits').textContent = totalCredits;
-
-            // Update grades
-            const currentGrade = getGradeLevel(currentGPA);
-            const cumulativeGrade = getGradeLevel(cumulativeGPA);
-
-            const currentGradeElement = document.getElementById('currentGrade');
-            currentGradeElement.textContent = currentGrade.text;
-            currentGradeElement.className = `grade-level ${currentGrade.class}`;
-
-            const cumulativeGradeElement = document.getElementById('cumulativeGrade');
-            cumulativeGradeElement.textContent = cumulativeGrade.text;
-            cumulativeGradeElement.className = `grade-level ${cumulativeGrade.class}`;
-
-            // Update progress bar
-            const progressPercent = (currentGPA / 4.0) * 100;
-            document.getElementById('gpaProgress').style.width = `${progressPercent}%`;
-        }
-
-        function updateYearlyGPA() {
-            for (let year = 1; year <= 4; year++) {
-                const semesters = year === 1 ? [1, 2] : year === 2 ? [3, 4] : year === 3 ? [5, 6] : [7, 8];
-                let totalPoints = 0;
-                let totalCredits = 0;
-
-                semesters.forEach(sem => {
-                    studentData.semesters[sem].forEach(subject => {
-                        totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                        totalCredits += subject.credits;
-                    });
-                });
-
-                const yearGPA = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : '--';
-                document.getElementById(`year${year}GPA`).textContent = yearGPA;
-            }
-        }
-
-        function updateStatistics() {
-            let totalSubjects = 0;
-            let totalScore = 0;
-            let highestScore = 0;
-            let lowestScore = 10;
-            let highestSubject = '--';
-            let lowestSubject = '--';
-
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    totalSubjects++;
-                    const score = parseFloat(subject.totalScore);
-                    totalScore += score;
-                    
-                    if (score > highestScore) {
-                        highestScore = score;
-                        highestSubject = subject.name;
-                    }
-                    
-                    if (score < lowestScore) {
-                        lowestScore = score;
-                        lowestSubject = subject.name;
-                    }
-                });
-            });
-
-            document.getElementById('totalSubjects').textContent = totalSubjects;
-            document.getElementById('averageScore').textContent = totalSubjects > 0 ? (totalScore / totalSubjects).toFixed(2) : '0.00';
-            document.getElementById('highestSubject').textContent = `${highestSubject} (${highestScore.toFixed(2)})`;
-            document.getElementById('lowestSubject').textContent = totalSubjects > 0 ? `${lowestSubject} (${lowestScore.toFixed(2)})` : '--';
-        }
-
-        // Notifications
-        function checkScholarship() {
-            const currentSubjects = studentData.semesters[studentData.currentSemester];
-            const scholarshipCard = document.getElementById('scholarshipInfo');
-            const scholarshipText = document.getElementById('scholarshipText');
-
-            let currentCredits = 0;
-            let currentGPA = 0;
-            
-            if (currentSubjects.length > 0) {
-                let totalPoints = 0;
-                currentSubjects.forEach(subject => {
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                    currentCredits += subject.credits;
-                });
-                currentGPA = totalPoints / currentCredits;
-            }
-
-            if (currentCredits >= 15) {
-                if (currentGPA >= 3.6) {
-                    scholarshipCard.style.display = 'block';
-                    scholarshipText.textContent = 'Chúc mừng! Bạn đủ điều kiện xét học bổng khuyến khích học tập với GPA xuất sắc!';
-                } else if (currentGPA >= 3.2) {
-                    scholarshipCard.style.display = 'block';
-                    scholarshipText.textContent = 'Bạn đủ điều kiện xét học bổng với GPA giỏi. Hãy cố gắng duy trì!';
-                } else if (currentGPA >= 2.5) {
-                    scholarshipCard.style.display = 'block';
-                    scholarshipText.textContent = 'Bạn có thể xét học bổng nếu cải thiện thêm một chút điểm số.';
-                } else {
-                    scholarshipCard.style.display = 'none';
-                }
-            } else {
-                scholarshipCard.style.display = 'none';
-            }
-        }
-
-        function checkWarnings() {
-            const currentSubjects = studentData.semesters[studentData.currentSemester];
-            const warningCard = document.getElementById('warningCard');
-            const warningText = document.getElementById('warningText');
-
-            let currentCredits = 0;
-            let currentGPA = 0;
-            
-            if (currentSubjects.length > 0) {
-                let totalPoints = 0;
-                currentSubjects.forEach(subject => {
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                    currentCredits += subject.credits;
-                });
-                currentGPA = totalPoints / currentCredits;
-            }
-
-            if (currentCredits < 15 && currentCredits > 0) {
-                warningCard.style.display = 'block';
-                warningText.textContent = 'Cảnh báo: Số tín chỉ dưới 15, bạn không đủ điều kiện xét học bổng và danh hiệu.';
-            } else if (currentGPA < 2.0 && currentGPA > 0) {
-                warningCard.style.display = 'block';
-                warningText.textContent = 'Cảnh báo học vụ: GPA dưới 2.0, bạn cần cải thiện kết quả học tập.';
-            } else {
-                warningCard.style.display = 'none';
-            }
-        }
-
-        // AI Assistant
+        // AI Assistant Functions
         function generateAISuggestions() {
-            const suggestionsContainer = document.getElementById('suggestionsContent');
-            const currentSubjects = studentData.semesters[studentData.currentSemester];
-            
+            const container = document.getElementById('suggestionsContent');
             let suggestions = [];
 
-            if (currentSubjects.length === 0) {
-                suggestions.push({
-                    icon: 'fas fa-info-circle',
-                    title: 'Bắt đầu nhập điểm',
-                    content: 'Hãy thêm các môn học và điểm số để AI có thể phân tích và đưa ra gợi ý phù hợp qua 8 học kỳ.'
-                });
-            } else {
-                let currentGPA = 0;
-                let totalPoints = 0;
-                let totalCredits = 0;
-                let lowestScore = 10;
-                let highestScore = 0;
-
-                currentSubjects.forEach(subject => {
-                    const score = parseFloat(subject.totalScore);
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+            // Calculate current GPA
+            let totalCredits = 0;
+            let totalGradePoints = 0;
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
                     totalCredits += subject.credits;
-                    
-                    if (score < lowestScore) lowestScore = score;
-                    if (score > highestScore) highestScore = score;
+                    totalGradePoints += subject.gpa4 * subject.credits;
                 });
+            }
+            const currentGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
 
-                currentGPA = totalPoints / totalCredits;
-
-                // GPA-based suggestions
-                if (currentGPA >= 3.6) {
-                    suggestions.push({
-                        icon: 'fas fa-star',
-                        title: 'Xuất sắc!',
-                        content: 'Kết quả học tập của bạn rất tuyệt vời! Hãy duy trì phong độ này và tham gia thêm các hoạt động ngoại khóa.'
-                    });
-                } else if (currentGPA >= 3.2) {
-                    suggestions.push({
-                        icon: 'fas fa-thumbs-up',
-                        title: 'Kết quả tốt',
-                        content: 'Bạn đang học tập rất tốt. Hãy cố gắng thêm một chút để đạt mức xuất sắc!'
-                    });
-                } else if (currentGPA >= 2.5) {
-                    suggestions.push({
-                        icon: 'fas fa-chart-line',
-                        title: 'Cần cải thiện',
-                        content: 'Hãy tập trung vào các môn có điểm thấp và cải thiện phương pháp học tập.'
-                    });
-                } else {
-                    suggestions.push({
-                        icon: 'fas fa-exclamation-triangle',
-                        title: 'Cần nỗ lực hơn',
-                        content: 'Kết quả học tập cần được cải thiện đáng kể. Hãy tìm kiếm sự hỗ trợ từ giảng viên và bạn bè.'
-                    });
-                }
-
-                if (lowestScore < 5.0) {
-                    suggestions.push({
-                        icon: 'fas fa-book',
-                        title: 'Tập trung vào môn yếu',
-                        content: 'Bạn có môn học với điểm số thấp. Hãy dành thêm thời gian ôn tập và tìm hiểu sâu hơn.'
-                    });
-                }
-
-                if (totalCredits < 15) {
-                    suggestions.push({
-                        icon: 'fas fa-calendar-plus',
-                        title: 'Đăng ký thêm môn',
-                        content: 'Số tín chỉ hiện tại chưa đủ 15. Hãy đăng ký thêm môn học để đủ điều kiện xét học bổng.'
-                    });
-                }
-
+            // Generate suggestions based on GPA
+            if (currentGPA >= 3.5) {
                 suggestions.push({
-                    icon: 'fas fa-lightbulb',
-                    title: 'Mẹo học tập',
-                    content: 'Hãy duy trì thói quen học đều đặn, tham gia đầy đủ các buổi học và hoàn thành bài tập đúng hạn.'
+                    icon: '🎉',
+                    title: 'Xuất sắc!',
+                                        content: 'GPA của bạn rất tốt! Hãy duy trì phong độ này và tập trung vào các hoạt động ngoại khóa để hoàn thiện hồ sơ.'
+                });
+            } else if (currentGPA >= 3.0) {
+                suggestions.push({
+                    icon: '👍',
+                    title: 'Tốt!',
+                    content: 'GPA của bạn ở mức khá tốt. Hãy cố gắng cải thiện các môn yếu để đạt mức xuất sắc.'
+                });
+            } else if (currentGPA >= 2.0) {
+                suggestions.push({
+                    icon: '📈',
+                    title: 'Cần cải thiện',
+                    content: 'GPA của bạn cần được cải thiện. Hãy tập trung vào việc học và tìm kiếm sự hỗ trợ từ giảng viên.'
+                });
+            } else if (totalCredits > 0) {
+                suggestions.push({
+                    icon: '⚠️',
+                    title: 'Cần nỗ lực nhiều hơn',
+                    content: 'GPA hiện tại khá thấp. Hãy xem xét lại phương pháp học tập và tìm kiếm sự giúp đỡ.'
                 });
             }
 
-            suggestionsContainer.innerHTML = suggestions.map(suggestion => `
+            // Additional suggestions
+            if (totalCredits === 0) {
+                suggestions.push({
+                    icon: '🚀',
+                    title: 'Bắt đầu hành trình',
+                    content: 'Hãy thêm điểm số để bắt đầu theo dõi tiến độ học tập của bạn!'
+                });
+            }
+
+            // Study tips
+            suggestions.push({
+                icon: '💡',
+                title: 'Mẹo học tập',
+                content: 'Hãy chia nhỏ thời gian học, tạo lịch trình cụ thể và thường xuyên ôn tập để đạt kết quả tốt nhất.'
+            });
+
+            container.innerHTML = suggestions.map(suggestion => `
                 <div class="suggestion-item">
-                    <i class="${suggestion.icon}" style="margin-right: 10px;"></i>
-                    <strong>${suggestion.title}:</strong> ${suggestion.content}
+                    <strong>${suggestion.icon} ${suggestion.title}:</strong> ${suggestion.content}
                 </div>
             `).join('');
         }
 
-        // Semester Management
-        function switchSemester(semester) {
-            studentData.currentSemester = semester;
-            
-            // Update active tab
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelector(`[data-semester="${semester}"]`).classList.add('active');
-            
-            // Update title
-            document.getElementById('currentSemesterTitle').textContent = `Học kỳ ${semester}`;
-            
-            updateDisplay();
-            generateAISuggestions();
+        function openChatModal() {
+            document.getElementById('chatModal').style.display = 'block';
         }
 
-        // AI Chat
-        function showAIChat() {
-            document.getElementById('aiChatModal').style.display = 'block';
+        function closeChatModal() {
+            document.getElementById('chatModal').style.display = 'none';
         }
 
-        function closeAIChat() {
-            document.getElementById('aiChatModal').style.display = 'none';
+        function handleChatEnter(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
         }
 
-        function sendMessage() {
+        function sendChatMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
-            
             if (!message) return;
 
             const chatMessages = document.getElementById('chatMessages');
             
-            // User message
+            // Add user message
             chatMessages.innerHTML += `
-                <div style="text-align: right; margin: 10px 0;">
-                    <div style="background: #667eea; color: white; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
-                        <strong>Bạn:</strong> ${message}
-                    </div>
+                <div style="margin-bottom: 10px; text-align: right;">
+                    <strong style="color: #63b3ed;">Bạn:</strong> ${message}
                 </div>
             `;
 
-            // AI response
-            const aiResponse = generateAIResponse(message);
-            
-            setTimeout(() => {
-                chatMessages.innerHTML += `
-                    <div style="margin: 10px 0;">
-                        <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
-                            <strong>AI:</strong> ${aiResponse}
-                        </div>
-                    </div>
-                `;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 1000);
+            // Generate AI response
+            const response = generateAIResponse(message);
+            chatMessages.innerHTML += `
+                <div style="margin-bottom: 10px; color: #4fd1c7;">
+                    <strong>AI Assistant:</strong> ${response}
+                </div>
+            `;
 
             input.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -1416,343 +1471,163 @@
         function generateAIResponse(message) {
             const lowerMessage = message.toLowerCase();
             
-            // Calculate current stats
-            let totalSubjects = 0;
-            let totalGPA = 0;
+            // Calculate current stats for context
             let totalCredits = 0;
+            let totalGradePoints = 0;
+            let totalSubjects = 0;
             
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    totalSubjects++;
-                    totalGPA += parseFloat(subject.gpa4) * subject.credits;
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
                     totalCredits += subject.credits;
+                    totalGradePoints += subject.gpa4 * subject.credits;
+                    totalSubjects++;
                 });
-            });
+            }
             
-            const currentGPA = totalCredits > 0 ? (totalGPA / totalCredits).toFixed(2) : 0;
+            const currentGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
 
             if (lowerMessage.includes('gpa') || lowerMessage.includes('điểm')) {
-                return `GPA tích lũy hiện tại của bạn là ${currentGPA}/4.0 với tổng ${totalCredits} tín chỉ qua ${Object.keys(studentData.semesters).filter(sem => studentData.semesters[sem].length > 0).length} học kỳ. ${currentGPA >= 3.2 ? 'Kết quả rất tốt!' : 'Hãy cố gắng cải thiện thêm nhé!'}`;
+                return `GPA hiện tại của bạn là ${currentGPA.toFixed(2)}/4.0. ${currentGPA >= 3.5 ? 'Rất tốt!' : currentGPA >= 3.0 ? 'Khá tốt, hãy cố gắng thêm!' : 'Cần cải thiện, đừng nản lòng!'}`;
             }
             
-            if (lowerMessage.includes('học bổng') || lowerMessage.includes('scholarship')) {
-                if (currentGPA >= 3.6) {
-                    return 'Tuyệt vời! Với GPA hiện tại, bạn đủ điều kiện xét học bổng khuyến khích học tập. Hãy duy trì kết quả này!';
-                } else if (currentGPA >= 3.2) {
-                    return 'Bạn đang có cơ hội tốt để xét học bổng. Hãy cố gắng nâng cao thêm một chút điểm số!';
-                } else {
-                    return `Để đủ điều kiện xét học bổng, bạn cần GPA tối thiểu 3.2. Hiện tại bạn đang ở mức ${currentGPA}, hãy cố gắng cải thiện!`;
-                }
+            if (lowerMessage.includes('cải thiện') || lowerMessage.includes('tăng')) {
+                return 'Để cải thiện GPA, bạn nên: 1) Tập trung vào các môn có tín chỉ cao, 2) Chuẩn bị kỹ cho kỳ thi cuối kỳ (50% điểm), 3) Hoàn thành tốt bài tập và tham gia tích cực lớp học.';
             }
             
-            if (lowerMessage.includes('cải thiện') || lowerMessage.includes('học tập')) {
-                                return 'Một số gợi ý để cải thiện kết quả học tập: 1) Tham gia đầy đủ các buổi học, 2) Hoàn thành bài tập đúng hạn, 3) Ôn tập thường xuyên, 4) Tham gia nhóm học tập, 5) Tìm kiếm sự hỗ trợ từ giảng viên khi cần thiết.';
+            if (lowerMessage.includes('học') || lowerMessage.includes('tips')) {
+                return 'Một số mẹo học tập hiệu quả: 1) Lập kế hoạch học tập cụ thể, 2) Ôn tập thường xuyên thay vì học dồn, 3) Tham gia nhóm học tập, 4) Hỏi giảng viên khi có thắc mắc, 5) Nghỉ ngơi đầy đủ.';
             }
             
-            if (lowerMessage.includes('dự đoán') || lowerMessage.includes('predict')) {
-                const targetGPA = 3.6;
-                const remainingCredits = 120 - totalCredits; // Giả sử tổng 120 tín chỉ
-                const requiredPoints = targetGPA * (totalCredits + remainingCredits) - totalGPA;
-                const requiredGPA = remainingCredits > 0 ? (requiredPoints / remainingCredits).toFixed(2) : 0;
-                
-                if (requiredGPA <= 4.0 && remainingCredits > 0) {
-                    return `Để đạt GPA ${targetGPA}, bạn cần đạt GPA trung bình ${requiredGPA} trong ${remainingCredits} tín chỉ còn lại. ${requiredGPA <= 3.0 ? 'Hoàn toàn có thể đạt được!' : 'Cần nỗ lực nhiều hơn!'}`;
-                } else {
-                    return 'Với kết quả hiện tại, bạn đang trên đường đạt mục tiêu. Hãy duy trì phong độ!';
-                }
+            if (lowerMessage.includes('thời gian') || lowerMessage.includes('lịch')) {
+                return 'Quản lý thời gian hiệu quả: 1) Sử dụng kỹ thuật Pomodoro (25 phút học + 5 phút nghỉ), 2) Ưu tiên các môn khó trước, 3) Dành 2-3 giờ mỗi ngày cho việc học, 4) Tránh học dồn vào phút chót.';
             }
             
-            if (lowerMessage.includes('xếp loại') || lowerMessage.includes('tốt nghiệp')) {
-                const grade = getGradeLevel(parseFloat(currentGPA));
-                return `Với GPA ${currentGPA}, bạn đang ở mức xếp loại "${grade.text}". ${grade.text === 'Xuất sắc' ? 'Tuyệt vời!' : `Để đạt xếp loại cao hơn, hãy cố gắng nâng cao GPA lên mức ${grade.text === 'Giỏi' ? '3.6' : grade.text === 'Khá' ? '3.2' : '2.5'}.`}`;
+            if (lowerMessage.includes('stress') || lowerMessage.includes('áp lực')) {
+                return 'Để giảm stress học tập: 1) Thở sâu và thư giãn, 2) Tập thể dục thường xuyên, 3) Ngủ đủ 7-8 tiếng/ngày, 4) Chia sẻ với bạn bè và gia đình, 5) Đặt mục tiêu thực tế.';
             }
             
-            if (lowerMessage.includes('thống kê') || lowerMessage.includes('tổng quan')) {
-                return `Thống kê tổng quan: Tổng ${totalSubjects} môn học, ${totalCredits} tín chỉ, GPA ${currentGPA}/4.0. Bạn đã hoàn thành ${Object.keys(studentData.semesters).filter(sem => studentData.semesters[sem].length > 0).length}/8 học kỳ.`;
+            if (lowerMessage.includes('mục tiêu') || lowerMessage.includes('target')) {
+                return `Với GPA hiện tại ${currentGPA.toFixed(2)}, bạn nên đặt mục tiêu thực tế. Hãy sử dụng tính năng "Dự đoán" để xem điểm cần thiết cho mục tiêu của bạn!`;
+            }
+
+            if (lowerMessage.includes('ngoại ngữ') || lowerMessage.includes('english') || lowerMessage.includes('tiếng anh')) {
+                return 'Học ngoại ngữ rất quan trọng! Bạn có thể nhấn nút "Ngoại ngữ" ở trên để truy cập trang học tiếng Anh. Một số mẹo: 1) Luyện nghe hàng ngày, 2) Đọc tin tức tiếng Anh, 3) Thực hành nói với bạn bè, 4) Sử dụng ứng dụng học từ vựng.';
             }
             
-            return 'Tôi có thể giúp bạn về: GPA và điểm số, thông tin học bổng, gợi ý cải thiện học tập, dự đoán kết quả, xếp loại tốt nghiệp. Hãy hỏi tôi cụ thể hơn nhé!';
+            // Default responses
+            const defaultResponses = [
+                'Tôi hiểu bạn đang quan tâm về việc học. Hãy cho tôi biết cụ thể hơn về vấn đề bạn muốn thảo luận!',
+                'Đó là một câu hỏi hay! Bạn có thể hỏi tôi về GPA, cách cải thiện điểm số, mẹo học tập, hoặc quản lý thời gian.',
+                'Tôi ở đây để hỗ trợ bạn! Hãy hỏi tôi về bất kỳ điều gì liên quan đến việc học và GPA của bạn.',
+                `Với ${totalSubjects} môn học và ${totalCredits} tín chỉ, bạn đang có một hành trình học tập thú vị! Tôi có thể giúp gì thêm?`
+            ];
+            
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
         }
 
         // Charts Functions
         function showChartsModal() {
             document.getElementById('chartsModal').style.display = 'block';
             updateChartStats();
-            setTimeout(() => {
-                initializeTabCharts('overview');
-            }, 100);
+            createCharts();
         }
 
         function closeChartsModal() {
             document.getElementById('chartsModal').style.display = 'none';
+            // Destroy charts to prevent memory leaks
+            Object.values(charts).forEach(chart => {
+                if (chart) chart.destroy();
+            });
+            charts = {};
         }
 
-        function switchChartTab(tabName) {
-            // Remove active from all sections and tabs
-            document.querySelectorAll('.chart-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.chart-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
+        function showChartSection(section) {
+            document.querySelectorAll('.chart-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.chart-section').forEach(section => section.classList.remove('active'));
             
-            // Add active to selected
-            document.getElementById(tabName + 'Section').classList.add('active');
             event.target.classList.add('active');
+            document.getElementById(section + 'Charts').classList.add('active');
             
-            // Initialize charts for selected tab
-            setTimeout(() => {
-                initializeTabCharts(tabName);
-            }, 100);
-        }
-
-        function initializeTabCharts(tabName) {
-            switch(tabName) {
-                case 'overview':
-                    createGPAChart();
-                    createYearlyComparisonChart();
-                    break;
-                case 'distribution':
-                    createSubjectDistributionChart();
-                    createGradeDistributionChart();
-                    break;
-                case 'comparison':
-                    createComponentComparisonChart();
-                    createCreditsChart();
-                    break;
-                case 'analysis':
-                    createTrendAnalysisChart();
-                    createPredictionChart();
-                    break;
-            }
+            // Recreate charts for the active section
+            setTimeout(() => createCharts(), 100);
         }
 
         function updateChartStats() {
-            let totalSubjects = 0;
-            let totalGPA = 0;
             let totalCredits = 0;
-            let completedSemesters = 0;
-            
-            Object.values(studentData.semesters).forEach(semester => {
-                if (semester.length > 0) {
-                    completedSemesters++;
-                    semester.forEach(subject => {
-                        totalSubjects++;
-                        totalGPA += parseFloat(subject.gpa4) * subject.credits;
-                        totalCredits += subject.credits;
-                    });
-                }
-            });
-            
-            const avgGPA = totalCredits > 0 ? (totalGPA / totalCredits).toFixed(2) : '0.00';
-            
-            document.getElementById('totalSubjectsChart').textContent = totalSubjects;
-            document.getElementById('avgGPAChart').textContent = avgGPA;
-            document.getElementById('totalCreditsChart').textContent = totalCredits;
-            document.getElementById('completedSemestersChart').textContent = completedSemesters;
-        }
+            let totalGradePoints = 0;
+            let highestGPA = 0;
+            let lowestGPA = 4;
+            let hasData = false;
 
-        // Chart Creation Functions
-        function createGPAChart() {
-            const ctx = document.getElementById('gpaChart').getContext('2d');
-            
-            const gpaData = [];
-            const labels = [];
-            
-            for (let i = 1; i <= 8; i++) {
-                const subjects = studentData.semesters[i];
-                if (subjects.length > 0) {
-                    let totalPoints = 0;
-                    let totalCredits = 0;
+            for (let semester = 1; semester <= 8; semester++) {
+                if (semesterData[semester].length > 0) {
+                    hasData = true;
+                    let semesterCredits = 0;
+                    let semesterGradePoints = 0;
                     
-                    subjects.forEach(subject => {
-                        totalPoints += parseFloat(subject.gpa4) * subject.credits;
+                    semesterData[semester].forEach(subject => {
                         totalCredits += subject.credits;
+                        totalGradePoints += subject.gpa4 * subject.credits;
+                        semesterCredits += subject.credits;
+                        semesterGradePoints += subject.gpa4 * subject.credits;
                     });
                     
-                    const gpa = totalPoints / totalCredits;
-                    gpaData.push(gpa.toFixed(2));
-                    labels.push(`HK ${i}`);
+                    const semesterGPA = semesterCredits > 0 ? semesterGradePoints / semesterCredits : 0;
+                    if (semesterGPA > highestGPA) highestGPA = semesterGPA;
+                    if (semesterGPA < lowestGPA) lowestGPA = semesterGPA;
                 }
             }
 
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'GPA theo học kỳ',
-                        data: gpaData,
-                        borderColor: '#667eea',
-                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: '#667eea',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 6,
-                        pointHoverRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 4,
-                            ticks: { stepSize: 0.5 }
-                        }
-                    }
-                }
-            });
+            const currentGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
+            
+            document.getElementById('chartCurrentGPA').textContent = currentGPA.toFixed(2);
+            document.getElementById('chartTotalCredits').textContent = totalCredits;
+            document.getElementById('chartHighestGPA').textContent = hasData ? highestGPA.toFixed(2) : '0.00';
+            document.getElementById('chartLowestGPA').textContent = hasData ? lowestGPA.toFixed(2) : '0.00';
         }
 
-        function createYearlyComparisonChart() {
-            const ctx = document.getElementById('yearlyChart').getContext('2d');
-            
-            const yearlyData = [];
-            const yearLabels = ['Năm 1', 'Năm 2', 'Năm 3', 'Năm 4'];
-            
-            for (let year = 1; year <= 4; year++) {
-                const semesters = year === 1 ? [1, 2] : year === 2 ? [3, 4] : year === 3 ? [5, 6] : [7, 8];
-                let totalPoints = 0;
-                let totalCredits = 0;
+        function createCharts() {
+            const activeSection = document.querySelector('.chart-section.active');
+            if (!activeSection) return;
 
-                semesters.forEach(sem => {
-                    studentData.semesters[sem].forEach(subject => {
-                        totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                        totalCredits += subject.credits;
-                    });
-                });
-
-                const yearGPA = totalCredits > 0 ? totalPoints / totalCredits : 0;
-                yearlyData.push(yearGPA.toFixed(2));
+            if (activeSection.id === 'overviewCharts') {
+                createGradeDistributionChart();
+                createGPAProgressChart();
+            } else if (activeSection.id === 'semesterCharts') {
+                createSemesterGPAChart();
+                createSemesterCreditsChart();
+            } else if (activeSection.id === 'subjectCharts') {
+                createTopSubjectsChart();
+                createScoreComponentsChart();
             }
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: yearLabels,
-                    datasets: [{
-                        label: 'GPA theo năm học',
-                        data: yearlyData,
-                        backgroundColor: [
-                            'rgba(102, 126, 234, 0.8)',
-                            'rgba(118, 75, 162, 0.8)',
-                            'rgba(255, 107, 107, 0.8)',
-                            'rgba(46, 213, 115, 0.8)'
-                        ],
-                        borderColor: [
-                            '#667eea', '#764ba2', '#ff6b6b', '#2ed573'
-                        ],
-                        borderWidth: 2,
-                        borderRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 4,
-                            ticks: { stepSize: 0.5 }
-                        }
-                    }
-                }
-            });
-        }
-
-        function createSubjectDistributionChart() {
-            const ctx = document.getElementById('subjectChart').getContext('2d');
-            
-            const scoreRanges = {
-                'Xuất sắc (9-10)': 0,
-                'Giỏi (8-8.9)': 0,
-                'Khá (7-7.9)': 0,
-                'Trung bình (5.5-6.9)': 0,
-                'Yếu (4-5.4)': 0,
-                'Kém (<4)': 0
-            };
-
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    const score = parseFloat(subject.totalScore);
-                    if (score >= 9) scoreRanges['Xuất sắc (9-10)']++;
-                    else if (score >= 8) scoreRanges['Giỏi (8-8.9)']++;
-                    else if (score >= 7) scoreRanges['Khá (7-7.9)']++;
-                    else if (score >= 5.5) scoreRanges['Trung bình (5.5-6.9)']++;
-                    else if (score >= 4) scoreRanges['Yếu (4-5.4)']++;
-                    else scoreRanges['Kém (<4)']++;
-                });
-            });
-
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(scoreRanges),
-                    datasets: [{
-                        data: Object.values(scoreRanges),
-                        backgroundColor: [
-                            '#ff6b6b', '#4834d4', '#f39c12', '#2ed573', '#ff9ff3', '#95a5a6'
-                        ],
-                        borderWidth: 2,
-                        borderColor: '#fff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { padding: 20, usePointStyle: true }
-                        }
-                    }
-                }
-            });
         }
 
         function createGradeDistributionChart() {
-            const ctx = document.getElementById('gradeChart').getContext('2d');
+            const ctx = document.getElementById('gradeDistributionChart');
+            if (!ctx) return;
+
+            const grades = { 'A (3.7-4.0)': 0, 'B (3.0-3.6)': 0, 'C (2.0-2.9)': 0, 'D (1.0-1.9)': 0, 'F (0.0-0.9)': 0 };
             
-            const gradeCount = {
-                'Xuất sắc': 0, 'Giỏi': 0, 'Khá': 0, 'Trung bình': 0, 'Yếu': 0, 'Kém': 0
-            };
-
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    const gpa = parseFloat(subject.gpa4);
-                    const grade = getGradeLevel(gpa);
-                    gradeCount[grade.text]++;
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
+                    if (subject.gpa4 >= 3.7) grades['A (3.7-4.0)']++;
+                    else if (subject.gpa4 >= 3.0) grades['B (3.0-3.6)']++;
+                    else if (subject.gpa4 >= 2.0) grades['C (2.0-2.9)']++;
+                    else if (subject.gpa4 >= 1.0) grades['D (1.0-1.9)']++;
+                    else grades['F (0.0-0.9)']++;
                 });
-            });
+            }
 
-            new Chart(ctx, {
-                type: 'polarArea',
+            if (charts.gradeDistribution) charts.gradeDistribution.destroy();
+            
+            charts.gradeDistribution = new Chart(ctx, {
+                type: 'doughnut',
                 data: {
-                    labels: Object.keys(gradeCount),
+                    labels: Object.keys(grades),
                     datasets: [{
-                        data: Object.values(gradeCount),
-                        backgroundColor: [
-                            'rgba(255, 107, 107, 0.7)',
-                            'rgba(72, 52, 212, 0.7)',
-                            'rgba(243, 156, 18, 0.7)',
-                            'rgba(46, 213, 115, 0.7)',
-                            'rgba(255, 159, 243, 0.7)',
-                            'rgba(149, 165, 166, 0.7)'
-                        ],
-                        borderColor: [
-                            '#ff6b6b', '#4834d4', '#f39c12', '#2ed573', '#ff9ff3', '#95a5a6'
-                        ],
+                        data: Object.values(grades),
+                        backgroundColor: ['#4fd1c7', '#63b3ed', '#90cdf4', '#f6ad55', '#f56565'],
+                        borderColor: '#1a365d',
                         borderWidth: 2
                     }]
                 },
@@ -1761,52 +1636,277 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: 'bottom',
-                            labels: { padding: 15, usePointStyle: true }
+                            labels: { color: '#e2e8f0' }
                         }
                     }
                 }
             });
         }
 
-        function createComponentComparisonChart() {
-            const ctx = document.getElementById('componentChart').getContext('2d');
+        function createGPAProgressChart() {
+            const ctx = document.getElementById('gpaProgressChart');
+            if (!ctx) return;
+
+            const semesterLabels = [];
+            const gpaData = [];
             
-            let totalAttendance = 0, totalHomework = 0, totalMidterm = 0, totalFinal = 0;
-            let count = 0;
+            for (let semester = 1; semester <= 8; semester++) {
+                if (semesterData[semester].length > 0) {
+                    let credits = 0;
+                    let gradePoints = 0;
+                    
+                    semesterData[semester].forEach(subject => {
+                        credits += subject.credits;
+                        gradePoints += subject.gpa4 * subject.credits;
+                    });
+                    
+                    semesterLabels.push(`HK ${semester}`);
+                    gpaData.push(credits > 0 ? (gradePoints / credits) : 0);
+                }
+            }
+
+            if (charts.gpaProgress) charts.gpaProgress.destroy();
             
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    totalAttendance += parseFloat(subject.attendance);
-                    totalHomework += parseFloat(subject.homework);
-                    totalMidterm += parseFloat(subject.midterm);
-                    totalFinal += parseFloat(subject.final);
+            charts.gpaProgress = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: semesterLabels,
+                    datasets: [{
+                        label: 'GPA',
+                        data: gpaData,
+                        borderColor: '#4fd1c7',
+                        backgroundColor: 'rgba(79, 209, 199, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4,
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e2e8f0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSemesterGPAChart() {
+            const ctx = document.getElementById('semesterGPAChart');
+            if (!ctx) return;
+
+            const labels = [];
+            const data = [];
+            
+            for (let semester = 1; semester <= 8; semester++) {
+                labels.push(`HK ${semester}`);
+                if (semesterData[semester].length > 0) {
+                    let credits = 0;
+                    let gradePoints = 0;
+                    
+                    semesterData[semester].forEach(subject => {
+                        credits += subject.credits;
+                        gradePoints += subject.gpa4 * subject.credits;
+                    });
+                    
+                    data.push(credits > 0 ? (gradePoints / credits) : 0);
+                } else {
+                    data.push(0);
+                }
+            }
+
+            if (charts.semesterGPA) charts.semesterGPA.destroy();
+            
+            charts.semesterGPA = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'GPA theo học kỳ',
+                        data: data,
+                        backgroundColor: 'rgba(79, 209, 199, 0.8)',
+                        borderColor: '#4fd1c7',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4,
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e2e8f0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSemesterCreditsChart() {
+            const ctx = document.getElementById('semesterCreditsChart');
+            if (!ctx) return;
+
+            const labels = [];
+            const data = [];
+            
+            for (let semester = 1; semester <= 8; semester++) {
+                labels.push(`HK ${semester}`);
+                let credits = 0;
+                semesterData[semester].forEach(subject => {
+                    credits += subject.credits;
+                });
+                data.push(credits);
+            }
+
+            if (charts.semesterCredits) charts.semesterCredits.destroy();
+            
+            charts.semesterCredits = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Số tín chỉ',
+                        data: data,
+                        backgroundColor: 'rgba(99, 179, 237, 0.8)',
+                        borderColor: '#63b3ed',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e2e8f0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createTopSubjectsChart() {
+            const ctx = document.getElementById('topSubjectsChart');
+            if (!ctx) return;
+
+            const allSubjects = [];
+            for (let semester = 1; semester <= 8; semester++) {
+                allSubjects.push(...semesterData[semester]);
+            }
+            
+            const topSubjects = allSubjects
+                .sort((a, b) => b.average - a.average)
+                .slice(0, 10);
+
+            if (charts.topSubjects) charts.topSubjects.destroy();
+            
+            charts.topSubjects = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: topSubjects.map(s => s.name.length > 15 ? s.name.substring(0, 15) + '...' : s.name),
+                    datasets: [{
+                        label: 'Điểm trung bình',
+                        data: topSubjects.map(s => s.average),
+                        backgroundColor: 'rgba(79, 209, 199, 0.8)',
+                        borderColor: '#4fd1c7',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        },
+                        y: {
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e2e8f0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createScoreComponentsChart() {
+            const ctx = document.getElementById('scoreComponentsChart');
+            if (!ctx) return;
+
+            let totalAttendance = 0, totalHomework = 0, totalMidterm = 0, totalFinal = 0, count = 0;
+            
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
+                    totalAttendance += subject.attendance;
+                    totalHomework += subject.homework;
+                    totalMidterm += subject.midterm;
+                    totalFinal += subject.final;
                     count++;
                 });
-            });
-            
-            if (count === 0) return;
-            
-            const avgScores = [
-                (totalAttendance / count).toFixed(2),
-                (totalHomework / count).toFixed(2),
-                (totalMidterm / count).toFixed(2),
-                (totalFinal / count).toFixed(2)
-            ];
+            }
 
-            new Chart(ctx, {
+            if (count === 0) return;
+
+            const avgAttendance = totalAttendance / count;
+            const avgHomework = totalHomework / count;
+            const avgMidterm = totalMidterm / count;
+            const avgFinal = totalFinal / count;
+
+            if (charts.scoreComponents) charts.scoreComponents.destroy();
+            
+            charts.scoreComponents = new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Chuyên cần', 'Bài tập', 'Giữa kỳ', 'Cuối kỳ'],
                     datasets: [{
                         label: 'Điểm trung bình',
-                        data: avgScores,
-                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
-                        borderColor: '#667eea',
+                        data: [avgAttendance, avgHomework, avgMidterm, avgFinal],
+                        backgroundColor: 'rgba(79, 209, 199, 0.2)',
+                        borderColor: '#4fd1c7',
                         borderWidth: 2,
-                        pointBackgroundColor: '#667eea',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2
+                        pointBackgroundColor: '#4fd1c7'
                     }]
                 },
                 options: {
@@ -1816,567 +1916,407 @@
                         r: {
                             beginAtZero: true,
                             max: 10,
-                            ticks: { stepSize: 2 }
+                            ticks: { color: '#e2e8f0' },
+                            grid: { color: 'rgba(79, 209, 199, 0.1)' },
+                            pointLabels: { color: '#e2e8f0' }
                         }
-                    }
-                }
-            });
-        }
-
-        function createCreditsChart() {
-            const ctx = document.getElementById('creditsChart').getContext('2d');
-            
-            const creditsData = [];
-            const labels = [];
-            
-            for (let i = 1; i <= 8; i++) {
-                const subjects = studentData.semesters[i];
-                let totalCredits = 0;
-                
-                subjects.forEach(subject => {
-                    totalCredits += subject.credits;
-                });
-                
-                creditsData.push(totalCredits);
-                labels.push(`HK ${i}`);
-            }
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Số tín chỉ',
-                        data: creditsData,
-                        backgroundColor: 'rgba(46, 213, 115, 0.8)',
-                        borderColor: '#2ed573',
-                        borderWidth: 2,
-                        borderRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { stepSize: 5 }
-                        }
-                    }
-                }
-            });
-        }
-
-        function createTrendAnalysisChart() {
-            const ctx = document.getElementById('trendChart').getContext('2d');
-            
-            const semesterGPAs = [];
-            const trendLine = [];
-            const labels = [];
-            
-            for (let i = 1; i <= 8; i++) {
-                const subjects = studentData.semesters[i];
-                if (subjects.length > 0) {
-                    let totalPoints = 0;
-                    let totalCredits = 0;
-                    
-                    subjects.forEach(subject => {
-                        totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                        totalCredits += subject.credits;
-                    });
-                    
-                    const gpa = totalPoints / totalCredits;
-                    semesterGPAs.push(gpa);
-                    labels.push(`HK ${i}`);
-                }
-            }
-            
-            // Simple trend line calculation
-            if (semesterGPAs.length > 1) {
-                const n = semesterGPAs.length;
-                let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-                
-                for (let i = 0; i < n; i++) {
-                    sumX += i;
-                    sumY += semesterGPAs[i];
-                    sumXY += i * semesterGPAs[i];
-                    sumXX += i * i;
-                }
-                
-                const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-                const intercept = (sumY - slope * sumX) / n;
-                
-                for (let i = 0; i < n; i++) {
-                    trendLine.push(slope * i + intercept);
-                }
-            }
-
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'GPA thực tế',
-                        data: semesterGPAs,
-                        borderColor: '#667eea',
-                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                        borderWidth: 3,
-                        fill: false,
-                        tension: 0.4,
-                        pointBackgroundColor: '#667eea',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 6
-                    }, {
-                        label: 'Xu hướng',
-                        data: trendLine,
-                        borderColor: '#ff6b6b',
-                        backgroundColor: 'transparent',
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        fill: false,
-                        pointRadius: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: true }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 4,
-                            ticks: { stepSize: 0.5 }
+                        legend: {
+                            labels: { color: '#e2e8f0' }
                         }
                     }
                 }
             });
         }
 
-        function createPredictionChart() {
-            const ctx = document.getElementById('predictionChart').getContext('2d');
-            
-            const actualGPAs = [];
-            const predictedGPAs = [];
-            const labels = [];
-            
-            // Get actual GPAs
-            for (let i = 1; i <= 8; i++) {
-                const subjects = studentData.semesters[i];
-                let gpa = null;
-                
-                if (subjects.length > 0) {
-                    let totalPoints = 0;
-                    let totalCredits = 0;
-                    
-                    subjects.forEach(subject => {
-                        totalPoints += parseFloat(subject.gpa4) * subject.credits;
-                        totalCredits += subject.credits;
-                    });
-                    
-                    gpa = totalPoints / totalCredits;
-                }
-                
-                actualGPAs.push(gpa);
-                labels.push(`HK ${i}`);
-            }
-            
-            // Simple prediction based on trend
-            const validGPAs = actualGPAs.filter(gpa => gpa !== null);
-            if (validGPAs.length >= 2) {
-                const lastGPA = validGPAs[validGPAs.length - 1];
-                const secondLastGPA = validGPAs[validGPAs.length - 2];
-                const trend = lastGPA - secondLastGPA;
-                
-                for (let i = 0; i < 8; i++) {
-                    if (actualGPAs[i] !== null) {
-                        predictedGPAs.push(actualGPAs[i]);
-                    } else {
-                        const lastValidIndex = actualGPAs.slice(0, i).lastIndexOf(actualGPAs.slice(0, i).find(gpa => gpa !== null));
-                        if (lastValidIndex >= 0) {
-                            const prediction = Math.max(0, Math.min(4, actualGPAs[lastValidIndex] + trend * (i - lastValidIndex)));
-                            predictedGPAs.push(prediction);
-                        } else {
-                            predictedGPAs.push(null);
-                        }
-                    }
-                }
-            }
-
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'GPA thực tế',
-                        data: actualGPAs,
-                        borderColor: '#667eea',
-                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                        borderWidth: 3,
-                        fill: false,
-                        tension: 0.4,
-                        pointBackgroundColor: '#667eea',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 6
-                    }, {
-                        label: 'GPA dự đoán',
-                        data: predictedGPAs,
-                        borderColor: '#2ed573',
-                        backgroundColor: 'rgba(46, 213, 115, 0.1)',
-                        borderWidth: 2,
-                        borderDash: [10, 5],
-                        fill: false,
-                        tension: 0.4,
-                        pointBackgroundColor: '#2ed573',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2,
-                        pointRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: true }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 4,
-                            ticks: { stepSize: 0.5 }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Utility Functions
-        function predictRequiredScore() {
-            const targetGPA = prompt('Nhập GPA mục tiêu (0-4):');
-            if (!targetGPA || isNaN(targetGPA) || targetGPA < 0 || targetGPA > 4) {
-                alert('Vui lòng nhập GPA hợp lệ (0-4)!');
+        function calculatePrediction() {
+            const targetGPA = parseFloat(document.getElementById('targetGPA').value);
+            if (isNaN(targetGPA) || targetGPA < 0 || targetGPA > 4) {
+                document.getElementById('predictionResults').innerHTML = 
+                    '<p style="color: #f56565; text-align: center;">Vui lòng nhập GPA mục tiêu hợp lệ (0-4)!</p>';
                 return;
             }
 
-            let totalPoints = 0;
             let totalCredits = 0;
+            let totalGradePoints = 0;
             
-            Object.values(studentData.semesters).forEach(semester => {
-                semester.forEach(subject => {
-                    totalPoints += parseFloat(subject.gpa4) * subject.credits;
+            for (let semester = 1; semester <= 8; semester++) {
+                semesterData[semester].forEach(subject => {
                     totalCredits += subject.credits;
+                    totalGradePoints += subject.gpa4 * subject.credits;
                 });
-            });
-
-            const remainingCredits = 120 - totalCredits; // Giả sử tổng 120 tín chỉ
-            const requiredPoints = parseFloat(targetGPA) * (totalCredits + remainingCredits) - totalPoints;
-            const requiredGPA = remainingCredits > 0 ? (requiredPoints / remainingCredits).toFixed(2) : 0;
-
-            if (remainingCredits <= 0) {
-                alert('Bạn đã hoàn thành tất cả tín chỉ!');
-            } else if (requiredGPA > 4.0) {
-                alert(`Không thể đạt GPA ${targetGPA} với kết quả hiện tại.`);
-            } else if (requiredGPA < 0) {
-                alert(`Bạn đã vượt mục tiêu! GPA hiện tại cao hơn ${targetGPA}.`);
-            } else {
-                alert(`Để đạt GPA ${targetGPA}, bạn cần GPA trung bình ${requiredGPA} trong ${remainingCredits} tín chỉ còn lại.`);
             }
-        }
 
-        function exportData() {
-            const dataStr = JSON.stringify(studentData, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'hub_gpa_data_8semesters.json';
-            link.click();
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        const importedData = JSON.parse(e.target.result);
-                        studentData.semesters = {
-                            1: importedData.semesters[1] || [],
-                            2: importedData.semesters[2] || [],
-                            3: importedData.semesters[3] || [],
-                            4: importedData.semesters[4] || [],
-                            5: importedData.semesters[5] || [],
-                            6: importedData.semesters[6] || [],
-                            7: importedData.semesters[7] || [],
-                            8: importedData.semesters[8] || []
-                        };
-                        studentData.currentSemester = importedData.currentSemester || 1;
-                        saveData();
-                        updateDisplay();
-                        generateAISuggestions();
-                        alert('Dữ liệu đã được import thành công!');
-                    } catch (error) {
-                        alert('Lỗi khi import dữ liệu. Vui lòng kiểm tra file!');
-                    }
-                };
-                reader.readAsText(file);
+            const currentGPA = totalCredits > 0 ? (totalGradePoints / totalCredits) : 0;
+            
+            if (currentGPA >= targetGPA) {
+                document.getElementById('predictionResults').innerHTML = `
+                    <div style="text-align: center;">
+                        <h4 style="color: #48bb78; margin-bottom: 15px;">🎉 Chúc mừng!</h4>
+                        <p>Bạn đã đạt được GPA mục tiêu ${targetGPA.toFixed(2)}!</p>
+                        <p>GPA hiện tại: <strong style="color: #4fd1c7;">${currentGPA.toFixed(2)}</strong></p>
+                        <p style="margin-top: 15px; color: #cbd5e0;">Hãy duy trì phong độ này để giữ vững thành tích!</p>
+                    </div>
+                `;
+                return;
             }
+
+            // Calculate credits needed for different scenarios
+            const creditsNeeded15 = 15; // Assume 15 credits for next semester
+            const creditsNeeded30 = 30; // Assume 30 credits for next year
+            
+            const gpaNeeded15 = ((targetGPA * (totalCredits + creditsNeeded15)) - totalGradePoints) / creditsNeeded15;
+            const gpaNeeded30 = ((targetGPA * (totalCredits + creditsNeeded30)) - totalGradePoints) / creditsNeeded30;
+
+            document.getElementById('predictionResults').innerHTML = `
+                <div>
+                    <h4 style="color: #4fd1c7; margin-bottom: 15px;">📊 Phân tích dự đoán</h4>
+                    <div style="margin-bottom: 15px;">
+                        <strong>GPA hiện tại:</strong> <span style="color: #4fd1c7;">${currentGPA.toFixed(2)}</span><br>
+                        <strong>GPA mục tiêu:</strong> <span style="color: #48bb78;">${targetGPA.toFixed(2)}</span><br>
+                        <strong>Chênh lệch:</strong> <span style="color: #ed8936;">${(targetGPA - currentGPA).toFixed(2)}</span>
+                    </div>
+                    
+                    <div style="background: rgba(26, 54, 93, 0.6); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h5 style="color: #63b3ed; margin-bottom: 10px;">Kịch bản 1: Học kỳ tiếp theo (15 tín chỉ)</h5>
+                        <p>GPA cần đạt: <strong style="color: ${gpaNeeded15 <= 4 ? '#4fd1c7' : '#f56565'}">${gpaNeeded15.toFixed(2)}</strong></p>
+                        <p style="font-size: 14px; color: #a0aec0;">
+                            ${gpaNeeded15 <= 4 ? '✅ Khả thi' : '❌ Không khả thi với 15 tín chỉ'}
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(26, 54, 93, 0.6); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h5 style="color: #63b3ed; margin-bottom: 10px;">Kịch bản 2: Năm học tiếp theo (30 tín chỉ)</h5>
+                        <p>GPA cần đạt: <strong style="color: ${gpaNeeded30 <= 4 ? '#4fd1c7' : '#f56565'}">${gpaNeeded30.toFixed(2)}</strong></p>
+                        <p style="font-size: 14px; color: #a0aec0;">
+                            ${gpaNeeded30 <= 4 ? '✅ Khả thi' : '❌ Cần xem xét lại mục tiêu'}
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(79, 209, 199, 0.1); padding: 15px; border-radius: 8px; border: 1px solid rgba(79, 209, 199, 0.3);">
+                        <h5 style="color: #4fd1c7; margin-bottom: 10px;">💡 Lời khuyên</h5>
+                        <ul style="margin: 0; padding-left: 20px; color: #cbd5e0; line-height: 1.6;">
+                            ${gpaNeeded15 <= 4 ? 
+                                                                '<li>Tập trung vào các môn có tín chỉ cao</li><li>Chuẩn bị kỹ cho kỳ thi cuối kỳ (50% điểm)</li><li>Tham gia tích cực các hoạt động lớp học</li>' :
+                                '<li>Cân nhắc giảm mục tiêu GPA xuống mức thực tế hơn</li><li>Tập trung cải thiện từng môn một cách bền vững</li><li>Tìm kiếm sự hỗ trợ từ giảng viên và bạn bè</li>'
+                            }
+                        </ul>
+                    </div>
+                </div>
+            `;
         }
 
-        function resetAllData() {
-            if (confirm('Bạn có chắc chắn muốn xóa tất cả dữ liệu? Hành động này không thể hoàn tác!')) {
-                studentData = {
-                    semesters: {
-                        1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []
-                    },
-                    currentSemester: 1
-                };
-                localStorage.removeItem('hubGPAData');
-                switchSemester(1);
-                updateDisplay();
-                generateAISuggestions();
-                alert('Đã xóa tất cả dữ liệu thành công!');
-            }
-        }
-
+        // Help Modal Functions
         function showHelpModal() {
-            const helpModal = document.createElement('div');
-            helpModal.className = 'modal';
-            helpModal.style.display = 'block';
-            helpModal.innerHTML = `
-                <div class="modal-content" style="max-width: 800px;">
-                    <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
-                    <h3><i class="fas fa-book"></i> Hướng dẫn sử dụng HUB GPA Calculator</h3>
-                    
-                    <div style="margin: 20px 0;">
-                        <h4><i class="fas fa-graduation-cap"></i> Giới thiệu</h4>
-                        <p>Ứng dụng tính điểm GPA thông minh dành cho sinh viên Đại học Ngân Hàng, hỗ trợ quản lý điểm số qua 8 học kỳ với AI Assistant.</p>
-                        
-                        <h4><i class="fas fa-calculator"></i> Cách tính điểm</h4>
-                        <ul>
-                            <li><strong>Điểm tổng kết:</strong> Chuyên cần (10%) + Bài tập (20%) + Giữa kỳ (20%) + Cuối kỳ (50%)</li>
-                            <li><strong>GPA:</strong> Chuyển đổi từ thang điểm 10 sang thang điểm 4</li>
-                                                        <li><strong>GPA tích lũy:</strong> Tính theo tín chỉ có trọng số</li>
-                        </ul>
-                        
-                        <h4><i class="fas fa-chart-bar"></i> Tính năng chính</h4>
-                        <ul>
-                            <li>Quản lý điểm qua 8 học kỳ (4 năm đại học)</li>
-                            <li>Tính toán GPA tự động và chính xác</li>
-                            <li>Trực quan hóa dữ liệu bằng biểu đồ đa dạng</li>
-                            <li>AI Assistant hỗ trợ tư vấn học tập</li>
-                            <li>Dự đoán điểm cần thiết để đạt mục tiêu</li>
-                            <li>Xuất/nhập dữ liệu để sao lưu</li>
-                        </ul>
-                        
-                        <h4><i class="fas fa-star"></i> Xếp loại tốt nghiệp</h4>
-                        <ul>
-                            <li><strong>Xuất sắc:</strong> GPA ≥ 3.6</li>
-                            <li><strong>Giỏi:</strong> 3.2 ≤ GPA < 3.6</li>
-                            <li><strong>Khá:</strong> 2.5 ≤ GPA < 3.2</li>
-                            <li><strong>Trung bình:</strong> 2.0 ≤ GPA < 2.5</li>
-                        </ul>
-                        
-                        <h4><i class="fas fa-award"></i> Học bổng</h4>
-                        <p>Để đủ điều kiện xét học bổng, bạn cần:</p>
-                        <ul>
-                            <li>Đăng ký tối thiểu 15 tín chỉ/học kỳ</li>
-                            <li>GPA học kỳ ≥ 3.2 (Khuyến khích học tập)</li>
-                            <li>GPA học kỳ ≥ 3.6 (Học bổng cao)</li>
-                        </ul>
+            document.getElementById('helpModal').style.display = 'block';
+        }
 
-                        <h4><i class="fas fa-keyboard"></i> Phím tắt</h4>
-                        <ul>
-                            <li><kbd>Ctrl + S</kbd>: Xuất dữ liệu</li>
-                            <li><kbd>Ctrl + N</kbd>: Focus vào ô tên môn học</li>
-                            <li><kbd>Ctrl + D</kbd>: Xem biểu đồ</li>
-                            <li><kbd>Ctrl + H</kbd>: Hiển thị hướng dẫn</li>
-                            <li><kbd>1-8</kbd>: Chuyển học kỳ</li>
-                        </ul>
-                    </div>
+        function closeHelpModal() {
+            document.getElementById('helpModal').style.display = 'none';
+        }
+
+        function closeAllModals() {
+            closeChatModal();
+            closeChartsModal();
+            closeHelpModal();
+        }
+
+        // Language Page Function
+        function openLanguagePage() {
+            // You can replace this URL with your actual English learning page
+            const languagePageURL = 'https://your-english-learning-site.com';
+            
+            // For demo purposes, we'll show a modal with language learning resources
+            showLanguageModal();
+        }
+
+        function showLanguageModal() {
+            // Create a temporary modal for language learning
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close" onclick="closeLanguageModal()">&times;</span>
+                    <h2><i class="fas fa-globe"></i> Trang học ngoại ngữ</h2>
                     
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn btn-primary" onclick="this.parentElement.parentElement.parentElement.remove()">
-                            Đã hiểu
-                        </button>
+                    <div style="text-align: center; margin: 30px 0;">
+                        <h3 style="color: #4fd1c7; margin-bottom: 20px;">🌟 Tài nguyên học tiếng Anh miễn phí</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-book"></i> Từ vựng</h4>
+                                <p>Học từ vựng theo chủ đề với flashcards tương tác</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://letu18.github.io/English/')">
+                                    <i class="fas fa-external-link-alt"></i> Quizlet
+                                </button>
+                            </div>
+                            
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-headphones"></i> Nghe</h4>
+                                <p>Luyện nghe với podcast và video có phụ đề</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://www.ted.com/talks')">
+                                    <i class="fas fa-external-link-alt"></i> TED Talks
+                                </button>
+                            </div>
+                            
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-comments"></i> Nói</h4>
+                                <p>Thực hành giao tiếp với người bản ngữ</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://www.cambly.com')">
+                                    <i class="fas fa-external-link-alt"></i> Cambly
+                                </button>
+                            </div>
+                            
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-newspaper"></i> Đọc</h4>
+                                <p>Đọc tin tức và bài viết tiếng Anh</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://www.bbc.com/learningenglish')">
+                                    <i class="fas fa-external-link-alt"></i> BBC Learning
+                                </button>
+                            </div>
+                            
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-pen"></i> Viết</h4>
+                                <p>Cải thiện kỹ năng viết với bài tập thực hành</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://www.grammarly.com')">
+                                    <i class="fas fa-external-link-alt"></i> Grammarly
+                                </button>
+                            </div>
+                            
+                            <div class="language-resource-card">
+                                <h4><i class="fas fa-gamepad"></i> Game</h4>
+                                <p>Học tiếng Anh qua trò chơi vui nhộn</p>
+                                <button class="btn btn-primary" onclick="openExternalLink('https://letu18.github.io/English/')">
+                                    <i class="fas fa-external-link-alt"></i> letu
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(79, 209, 199, 0.1); padding: 20px; border-radius: 10px; border: 1px solid rgba(79, 209, 199, 0.3); margin: 20px 0;">
+                            <h4 style="color: #4fd1c7; margin-bottom: 15px;">💡 Mẹo học tiếng Anh hiệu quả</h4>
+                            <ul style="text-align: left; color: #cbd5e0; line-height: 1.8;">
+                                <li><strong>Thực hành hàng ngày:</strong> Dành ít nhất 30 phút mỗi ngày</li>
+                                <li><strong>Nghe nhạc và xem phim:</strong> Có phụ đề tiếng Anh</li>
+                                <li><strong>Ghi chép từ mới:</strong> Học 5-10 từ mới mỗi ngày</li>
+                                <li><strong>Nói to:</strong> Luyện phát âm trước gương</li>
+                                <li><strong>Tham gia cộng đồng:</strong> Tìm nhóm học tiếng Anh</li>
+                                <li><strong>Đặt mục tiêu:</strong> IELTS, TOEIC, TOEFL</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(26, 54, 93, 0.6); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <h4 style="color: #63b3ed; margin-bottom: 15px;">📚 Lộ trình học theo trình độ</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                                <div style="background: rgba(79, 209, 199, 0.2); padding: 15px; border-radius: 8px;">
+                                    <h5 style="color: #4fd1c7;">Beginner (A1-A2)</h5>
+                                    <p style="font-size: 14px; color: #cbd5e0;">Từ vựng cơ bản, ngữ pháp đơn giản</p>
+                                </div>
+                                <div style="background: rgba(99, 179, 237, 0.2); padding: 15px; border-radius: 8px;">
+                                    <h5 style="color: #63b3ed;">Intermediate (B1-B2)</h5>
+                                    <p style="font-size: 14px; color: #cbd5e0;">Giao tiếp thông thạo, đọc hiểu</p>
+                                </div>
+                                <div style="background: rgba(144, 205, 244, 0.2); padding: 15px; border-radius: 8px;">
+                                    <h5 style="color: #90cdf4;">Advanced (C1-C2)</h5>
+                                    <p style="font-size: 14px; color: #cbd5e0;">Thành thạo, thi chứng chỉ quốc tế</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
-            document.body.appendChild(helpModal);
-        }
-
-        function showWelcomeMessage() {
-            const welcome = document.createElement('div');
-            welcome.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #667eea, #764ba2);
-                color: white;
-                padding: 20px;
-                border-radius: 15px;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-                z-index: 1000;
-                max-width: 300px;
-                animation: slideIn 0.5s ease-out;
-            `;
             
-            welcome.innerHTML = `
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <i class="fas fa-graduation-cap" style="font-size: 24px; margin-right: 10px;"></i>
-                    <strong>Chào mừng đến với HUB GPA Calculator!</strong>
-                </div>
-                <p style="margin: 0; font-size: 14px; opacity: 0.9;">
-                    Hệ thống tính điểm thông minh hỗ trợ 8 học kỳ với AI Assistant. 
-                    Nhấn <kbd>Ctrl+H</kbd> để xem hướng dẫn chi tiết.
-                </p>
-                <button onclick="this.parentElement.remove()" style="
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
-                    background: none;
-                    border: none;
-                    color: white;
-                    font-size: 18px;
-                    cursor: pointer;
-                ">&times;</button>
-            `;
+            document.body.appendChild(modal);
             
-            document.body.appendChild(welcome);
-            
-            setTimeout(() => {
-                if (welcome.parentElement) {
-                    welcome.remove();
+            // Add styles for language resource cards
+            const style = document.createElement('style');
+            style.textContent = `
+                .language-resource-card {
+                    background: rgba(26, 54, 93, 0.6);
+                    border: 1px solid rgba(79, 209, 199, 0.2);
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    transition: all 0.3s ease;
                 }
-            }, 10000);
+                .language-resource-card:hover {
+                    border-color: #4fd1c7;
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 25px rgba(79, 209, 199, 0.2);
+                }
+                .language-resource-card h4 {
+                    color: #4fd1c7;
+                    margin-bottom: 10px;
+                }
+                .language-resource-card p {
+                    color: #cbd5e0;
+                    margin-bottom: 15px;
+                    font-size: 14px;
+                }
+            `;
+            document.head.appendChild(style);
         }
 
-        function autoBackup() {
-            const lastBackup = localStorage.getItem('lastBackup');
-            const now = new Date().getTime();
-            
-            if (!lastBackup || (now - parseInt(lastBackup)) > 24 * 60 * 60 * 1000) {
-                const backupData = JSON.stringify(studentData);
-                localStorage.setItem('hubGPABackup', backupData);
-                localStorage.setItem('lastBackup', now.toString());
+        function closeLanguageModal() {
+            const modal = document.querySelector('.modal:last-child');
+            if (modal) {
+                modal.remove();
             }
         }
 
-        function restoreFromBackup() {
-            const backup = localStorage.getItem('hubGPABackup');
-            if (backup && confirm('Bạn có muốn khôi phục dữ liệu từ bản sao lưu không?')) {
-                try {
-                    const backupData = JSON.parse(backup);
-                    studentData = backupData;
-                    saveData();
-                    updateDisplay();
-                    generateAISuggestions();
-                    alert('Đã khôi phục dữ liệu thành công!');
-                } catch (error) {
-                    alert('Lỗi khi khôi phục dữ liệu!');
-                }
-            }
+        function openExternalLink(url) {
+            window.open(url, '_blank');
         }
 
-        // Event Listeners and Initialization
+        // Additional utility functions
+        function formatNumber(num) {
+            return new Intl.NumberFormat('vi-VN').format(num);
+        }
+
+        function getMotivationalQuote() {
+            const quotes = [
+                "Thành công là tổng của những nỗ lực nhỏ lặp đi lặp lại mỗi ngày.",
+                "Học tập không phải là chuẩn bị cho cuộc sống; học tập chính là cuộc sống.",
+                "Kiến thức là sức mạnh, nhưng việc áp dụng kiến thức mới là siêu năng lực.",
+                "Mỗi chuyên gia đều từng là người mới bắt đầu.",
+                "Đừng so sánh tiến bộ của bạn với người khác. Hãy so sánh với chính bản thân ngày hôm qua."
+            ];
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        // Add motivational quote to suggestions periodically
+        setInterval(() => {
+            const suggestionsContent = document.getElementById('suggestionsContent');
+            if (suggestionsContent && Math.random() < 0.3) { // 30% chance
+                const quote = getMotivationalQuote();
+                const quoteElement = document.createElement('div');
+                quoteElement.className = 'suggestion-item';
+                quoteElement.innerHTML = `<strong>💪 Động lực:</strong> ${quote}`;
+                quoteElement.style.animation = 'slideIn 0.5s ease-out';
+                
+                suggestionsContent.appendChild(quoteElement);
+                
+                // Remove after 10 seconds
+                setTimeout(() => {
+                    if (quoteElement.parentNode) {
+                        quoteElement.remove();
+                    }
+                }, 10000);
+            }
+        }, 30000); // Every 30 seconds
+
+        // Performance optimization: Debounce function for input events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debouncing to average calculation
+        const debouncedCalculateAverage = debounce(calculateAverage, 300);
+        ['attendance', 'homework', 'midterm', 'final'].forEach(id => {
+            document.getElementById(id).removeEventListener('input', calculateAverage);
+            document.getElementById(id).addEventListener('input', debouncedCalculateAverage);
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading states for better UX
+        function showLoading(element) {
+            const originalContent = element.innerHTML;
+            element.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+            element.disabled = true;
+            
+            return () => {
+                element.innerHTML = originalContent;
+                element.disabled = false;
+            };
+        }
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('Application error:', e.error);
+            showAlert('warning', 'Đã xảy ra lỗi. Vui lòng thử lại hoặc tải lại trang.');
+        });
+
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key >= '1' && e.key <= '8') {
+                e.preventDefault();
+                const semesterNumber = parseInt(e.key);
+                const tab = document.querySelector(`[data-semester="${semesterNumber}"]`);
+                if (tab) {
+                    tab.click();
+                }
+            }
+        });
+
+        // Initialize tooltips
+        function initializeTooltips() {
+            document.querySelectorAll('[data-tooltip]').forEach(element => {
+                element.style.position = 'relative';
+                element.classList.add('tooltip');
+            });
+        }
+
+        // Call initialization functions
         document.addEventListener('DOMContentLoaded', function() {
-            // Load data
-            loadData();
+            initializeTooltips();
             
-            // Setup tab listeners
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    if (this.dataset.semester) {
-                        switchSemester(parseInt(this.dataset.semester));
-                    }
-                });
-            });
-
-            // Setup real-time score calculation
-            ['attendance', 'homework', 'midterm', 'final'].forEach(id => {
-                document.getElementById(id).addEventListener('input', updateRealTimeScore);
-            });
-
-            // Chat input handler
-            document.getElementById('chatInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-
-            // Keyboard shortcuts
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.key === 's') {
-                    e.preventDefault();
-                    exportData();
-                }
-                
-                if (e.ctrlKey && e.key === 'n') {
-                    e.preventDefault();
-                    document.getElementById('subjectName').focus();
-                }
-                
-                if (e.ctrlKey && e.key === 'd') {
-                    e.preventDefault();
-                    showChartsModal();
-                }
-                
-                if (e.ctrlKey && e.key === 'h') {
-                    e.preventDefault();
-                    showHelpModal();
-                }
-                
-                if (e.key >= '1' && e.key <= '8' && !e.ctrlKey && !e.altKey) {
-                    const activeElement = document.activeElement;
-                    if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
-                        switchSemester(parseInt(e.key));
-                    }
-                }
-            });
-
-            // Modal close handlers
-            window.addEventListener('click', function(event) {
-                const aiModal = document.getElementById('aiChatModal');
-                const chartsModal = document.getElementById('chartsModal');
-                
-                if (event.target === aiModal) {
-                    closeAIChat();
-                }
-                if (event.target === chartsModal) {
-                    closeChartsModal();
-                }
-            });
-            
-            // Initial display update
-            updateDisplay();
-            generateAISuggestions();
-            
-            // Auto backup
-            autoBackup();
-            
-            // Check for backup on startup
-            const backup = localStorage.getItem('hubGPABackup');
-            const mainData = localStorage.getItem('hubGPAData');
-            if (backup && !mainData) {
-                restoreFromBackup();
-            }
-            
-            // Show welcome message for first-time users
+            // Add welcome message
             setTimeout(() => {
-                if (!localStorage.getItem('welcomeShown')) {
-                    showWelcomeMessage();
-                    localStorage.setItem('welcomeShown', 'true');
+                if (Object.values(semesterData).every(semester => semester.length === 0)) {
+                    showAlert('success', 'Chào mừng bạn đến với HUB GPA Calculator! Hãy bắt đầu bằng cách thêm môn học đầu tiên.');
                 }
             }, 1000);
         });
+
+        // Export functions for global access
+        window.gpaCalculator = {
+            addSubject,
+            deleteSubject,
+            exportData,
+            importData,
+            resetAllData,
+            showChartsModal,
+            openLanguagePage,
+            calculatePrediction
+        };
+
+        // Service Worker registration for offline support (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
+
 
 
