@@ -1249,27 +1249,30 @@
         }
 
         function convertTo4Scale(score10) {
-            if (score10 >= 9.0) return 4.0;
-            if (score10 >= 8.5) return 3.7;
-            if (score10 >= 8.0) return 3.5;
-            if (score10 >= 7.5) return 3.2;
-            if (score10 >= 7.0) return 3.0;
-            if (score10 >= 6.5) return 2.7;
-            if (score10 >= 6.0) return 2.5;
-            if (score10 >= 5.5) return 2.2;
-            if (score10 >= 5.0) return 2.0;
-            if (score10 >= 4.0) return 1.0;
-            return 0.0;
-        }
+    if (score10 >= 8.95) return 4.0;    // A+
+    if (score10 >= 8.45) return 3.7;    // A  
+    if (score10 >= 7.95) return 3.5;    // B+
+    if (score10 >= 6.95) return 3.0;    // B
+    if (score10 >= 6.45) return 2.5;    // C+
+    if (score10 >= 5.45) return 2.0;    // C
+    if (score10 >= 4.95) return 1.5;    // D+
+    if (score10 >= 3.95) return 1.0;    // D
+    return 0.0;                          // F
+}
+
 
         function getGradeLevel(gpa) {
-            if (gpa >= 3.6) return { text: 'Xuất sắc', class: 'grade-excellent' };
-            if (gpa >= 3.2) return { text: 'Giỏi', class: 'grade-good' };
-            if (gpa >= 2.5) return { text: 'Khá', class: 'grade-fair' };
-            if (gpa >= 2.0) return { text: 'Trung bình', class: 'grade-average' };
-            if (gpa >= 1.0) return { text: 'Yếu', class: 'grade-poor' };
-            return { text: 'Kém', class: 'grade-poor' };
-        }
+    if (gpa >= 4.0) return { text: 'A+', class: 'grade-excellent' };
+    if (gpa >= 3.7) return { text: 'A', class: 'grade-excellent' };
+    if (gpa >= 3.5) return { text: 'B+', class: 'grade-good' };
+    if (gpa >= 3.0) return { text: 'B', class: 'grade-good' };
+    if (gpa >= 2.5) return { text: 'C+', class: 'grade-fair' };
+    if (gpa >= 2.0) return { text: 'C', class: 'grade-fair' };
+    if (gpa >= 1.5) return { text: 'D+', class: 'grade-average' };
+    if (gpa >= 1.0) return { text: 'D', class: 'grade-average' };
+    return { text: 'F', class: 'grade-poor' };
+}
+
 
         // Real-time score calculation (giữ nguyên)
         function updateRealTimeScore() {
@@ -1288,12 +1291,13 @@
         }
 
         function getGradeColor(gpa) {
-            if (gpa >= 3.6) return '#00bfa5, #0077be';
-            if (gpa >= 3.2) return '#0077be, #1e3a5f';
-            if (gpa >= 2.5) return '#2c5f7c, #1e3a5f';
-            if (gpa >= 2.0) return '#004d7a, #0c1821';
-            return '#37474f, #263238';
-        }
+    if (gpa >= 3.7) return '#00bfa5, #0077be';    // A, A+
+    if (gpa >= 3.0) return '#0077be, #1e3a5f';    // B, B+
+    if (gpa >= 2.0) return '#2c5f7c, #1e3a5f';    // C, C+
+    if (gpa >= 1.0) return '#004d7a, #0c1821';    // D, D+
+    return '#37474f, #263238';                      // F
+}
+
 
         // Subject Management (giữ nguyên tất cả logic)
         function addSubject() {
