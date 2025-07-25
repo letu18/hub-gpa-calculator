@@ -696,7 +696,6 @@
         <!-- Header -->
         <div class="header">
             <h1><i class="fas fa-graduation-cap"></i> HUB GPA Calculator</h1>
-            <span class="international-badge">International Edition</span>
             <p>Hệ thống tính điểm GPA thông minh - Hỗ trợ với AI Assistant</p>
             
             <!-- Language Section -->
@@ -1964,10 +1963,10 @@
 
             // Calculate credits needed for different scenarios
             const creditsNeeded15 = 15; // Assume 15 credits for next semester
-            const creditsNeeded30 = 30; // Assume 30 credits for next year
+            const creditsNeeded20 = 20; // Assume 20 credits for next year
             
             const gpaNeeded15 = ((targetGPA * (totalCredits + creditsNeeded15)) - totalGradePoints) / creditsNeeded15;
-            const gpaNeeded30 = ((targetGPA * (totalCredits + creditsNeeded30)) - totalGradePoints) / creditsNeeded30;
+            const gpaNeeded20 = ((targetGPA * (totalCredits + creditsNeeded20)) - totalGradePoints) / creditsNeeded20;
 
             document.getElementById('predictionResults').innerHTML = `
                 <div>
@@ -1987,10 +1986,10 @@
                     </div>
                     
                     <div style="background: rgba(26, 54, 93, 0.6); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                        <h5 style="color: #63b3ed; margin-bottom: 10px;">Kịch bản 2: Năm học tiếp theo (30 tín chỉ)</h5>
-                        <p>GPA cần đạt: <strong style="color: ${gpaNeeded30 <= 4 ? '#4fd1c7' : '#f56565'}">${gpaNeeded30.toFixed(2)}</strong></p>
+                        <h5 style="color: #63b3ed; margin-bottom: 10px;">Kịch bản 2: Năm học tiếp theo (20 tín chỉ)</h5>
+                        <p>GPA cần đạt: <strong style="color: ${gpaNeeded20 <= 4 ? '#4fd1c7' : '#f56565'}">${gpaNeeded20.toFixed(2)}</strong></p>
                         <p style="font-size: 14px; color: #a0aec0;">
-                            ${gpaNeeded30 <= 4 ? '✅ Khả thi' : '❌ Cần xem xét lại mục tiêu'}
+                            ${gpaNeeded20 <= 4 ? '✅ Khả thi' : '❌ Cần xem xét lại mục tiêu'}
                         </p>
                     </div>
                     
